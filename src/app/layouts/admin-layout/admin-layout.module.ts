@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from "@ng-select/ng-select";
 
 import { LbdModule } from '../../lbd/lbd.module';
 
@@ -58,6 +59,7 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
     FormsModule,
     LbdModule,
     ReactiveFormsModule,
+    NgSelectModule,
   ],
   declarations: [
     HomeComponent,

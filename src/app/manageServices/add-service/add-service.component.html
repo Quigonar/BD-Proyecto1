@@ -1,1 +1,74 @@
-<p>add-service works!</p>
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Add Service</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input [formControl]="name" type="text" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Cost</label>
+                                        <input [formControl]="cost" type="text" class="form-control" placeholder="Cost">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input [formControl]="price" type="text" class="form-control" placeholder="Price">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Estimated Duration</label>
+                                        <input [formControl]="duration" type="text" class="form-control" placeholder="Duration">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Products Needed</label>
+                                        <select [formControl]="products" type="text" class="form-control" placeholder="Products Needed" multiple>
+                                            <option *ngFor="let product of productos" [value]="product">{{product}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Required Personal</label>
+                                        <input [formControl]="personalReq" list="PersonalList" type="text" class="form-control" placeholder="Required Personal">
+                                        <datalist id="PersonalList">
+                                            <option value="Lavador">Lavador</option>
+                                            <option value="Pulidor">Pulidor</option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Punctuation</label>
+                                        <input [formControl]="punctuation" type="text" class="form-control" placeholder="Punctuation">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+                <a href="#/services"><button (click)="addService()" type="submit" class="btn btn-info btn-fill pull-right">Add Service</button></a>
+
+                <ng-select [items]="productos" bindLabel="name" placeholder="Select Products" appendTo="body" [multiple]="true" [(ngModel)]="selected"></ng-select>
+            </div>
+        </div>
+    </div>
+</div>

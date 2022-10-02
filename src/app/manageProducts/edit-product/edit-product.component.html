@@ -1,1 +1,53 @@
-<p>edit-product works!</p>
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Product</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input [formControl]="name" type="text" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Brand</label>
+                                        <input [formControl]="brand" type="text" class="form-control" placeholder="Brand">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input [formControl]="price" type="text" class="form-control" placeholder="Price">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Provider</label>
+                                        <input [formControl]="provider" list="ProvidersList" type="text" class="form-control" placeholder="Provider">
+                                        <datalist id="ProvidersList">
+                                            <option *ngFor="let provider of providers" [value]="provider.Name">
+                                                {{provider.Name}}
+                                            </option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+                <a href="#/products"><button (click)="editProduct()" type="submit" class="btn btn-info btn-fill pull-right">Edit Product</button></a>
+            </div>
+        </div>
+    </div>
+</div>

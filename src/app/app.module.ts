@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { NgSelectModule } from "@ng-select/ng-select";
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
@@ -24,6 +25,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     SidebarModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgSelectModule,
   ],
   declarations: [
     AppComponent,
