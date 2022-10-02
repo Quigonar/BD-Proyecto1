@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgSelectModule } from "@ng-select/ng-select";
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
@@ -26,6 +27,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AppRoutingModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [
     AppComponent,

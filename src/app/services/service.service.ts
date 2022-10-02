@@ -17,7 +17,7 @@ export class ServiceService {
   constructor() { 
     this.tableData = {
       headerRow: [ 'Name', 'Cost', 'Price', 'Estimated Duration', 'Products Needed', 'Required Personal', 'Punctuation' ],
-      dataRows: [['Lavado y aspirado','15500','33000','2 hrs','Jabon y aspiradora','Lavador','33']]
+      dataRows: [['Lavado y aspirado','15500','33000','2 hrs','Jabon, Aspiradora','Lavador','33']]
     }
   }
   

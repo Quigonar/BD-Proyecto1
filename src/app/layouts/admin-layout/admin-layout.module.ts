@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from "@ng-select/ng-select";
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 import { LbdModule } from '../../lbd/lbd.module';
 
@@ -60,6 +61,7 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
     LbdModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgMultiSelectDropDownModule,
   ],
   declarations: [
     HomeComponent,
