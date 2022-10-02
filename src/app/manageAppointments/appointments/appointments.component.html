@@ -1,4 +1,4 @@
-<div class="main-content">
+<!--<div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -9,14 +9,14 @@
                                 <h4 class="title"> Appointment List </h4>
                             </div>
                             <div class="col-md-1">
-                                <a href="#/newappointment">
-                                    <button type="submit" class="btn btn-info btn-fill pull-right" href="#/appointments">
-                                        Make Appointment
+                                <a href="#/add-appointment">
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">
+                                        <div class="font-icon-detail"><i class="pe-7s-plus"></i></div>
                                     </button>
                                 </a>
                             </div>
                         </div>
-                        <p class="category">List of all the appointments to come</p>
+                        <p class="category">List of all the appointments</p>
                     </div>                    
                     <div class="content table-full-width table-responsive">
                         <table class="table table-hover table-stiped">
@@ -29,7 +29,7 @@
                                 <tr *ngFor="let row of tableData1.dataRows; let indexOfAppoint=index;">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                     <td>
-                                        <a href="#/modifyappointment">
+                                        <a href="#/edit-appointment">
                                         <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Edit" class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-edit"></i>
                                         </button>
@@ -37,7 +37,7 @@
                                         <button (click)="elimcita(indexOfAppoint)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                        <a href="#/prebilling">
+                                        <a href="#/pre-billing">
                                             <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Pay" class="btn btn-info btn-simple btn-xs">
                                                 <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                             </button>
@@ -50,5 +50,59 @@
                 </div>
             </div>
         </div>
-</div>
+</div>-->
 
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h4 class="title">  Appointment List  </h4>
+                            </div>
+                            <div class="col-md-1">
+                                <a href="#/add-appointment">
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">
+                                        <div class="font-icon-detail"><i class="pe-7s-plus"></i></div>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="category">    List of all the appointments registered in the system    </p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData1.dataRows; let indexOfAppoint=index;">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                        <td class="td-actions text-right">
+                                            <a href="#/edit-appointment">
+                                                <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Edit" class="btn btn-info btn-simple btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
+                                            <a href="#/pre-billing">
+                                                <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Edit" class="btn btn-info btn-simple btn-xs">
+                                                    <i class="fa fa-credit-card-alt"></i>
+                                                </button>
+                                            </a>
+                                            <button (click)="elimOffice(indexOfAppoint)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

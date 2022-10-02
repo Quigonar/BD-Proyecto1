@@ -19,9 +19,8 @@ export class CitaService {
   constructor() { 
     this.tableData = {
       headerRow: [ 'Appointment #','Client Name', 'Client Surname','Client ID','License Plate', 'Service','Office','Date/Time'],
-      dataRows: []
+      dataRows: [ ['0','Marcos','Gonzalez','118320994','ABC-103','Lavado','Cartago','2022-10-02T01:04'] ]
     }
-    this.IDNewCita=0;
   }
   
   getTable() {
@@ -33,20 +32,14 @@ export class CitaService {
       this.tableData.dataRows.push([cita.AppointmentN,cita.ClientN,cita.ClientLN,cita.ClientID,cita.LicenseP,cita.Service,cita.Office,cita.DateTime]) 
     }
   }
-  setCitas(newdata: string[]){
-    this.tableData.dataRows[this.lastindex]=newdata;
-  };
   getCitas(){
     return this.tableData.dataRows
   };
   getCita(){
     return this.cita
   };
-  setCita(cliente: string[]){
-    this.cita = cliente
+  
+  setCita(cita_: string[]){
+    this.cita = cita_
   };
-  appendCitas(Nuevacita:string[]){
-    this.tableData.dataRows.push(Nuevacita);
-  }
-
 }

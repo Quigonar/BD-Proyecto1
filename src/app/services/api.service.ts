@@ -54,6 +54,7 @@ export class ApiService {
     return this.http.post<ResponseI>(dir,office)
   }
 
+
   gTableProviders():Observable<ProviderListI[]>{
     let dir = this.url + "proveedor/lista"
     return this.http.get<ProviderListI[]>(dir)
@@ -70,6 +71,7 @@ export class ApiService {
     let dir = this.url + "proveedor/delete"
     return this.http.post<ResponseI>(dir,provider)
   }
+
 
   gTableProducts():Observable<ProductListI[]>{
     let dir = this.url + "producto/lista"
@@ -88,6 +90,7 @@ export class ApiService {
     return this.http.post<ResponseI>(dir,product)
   }
 
+
   gTableServices():Observable<ServiceListI[]>{
     let dir = this.url + "servicio/lista"
     return this.http.get<ServiceListI[]>(dir)
@@ -104,6 +107,7 @@ export class ApiService {
     let dir = this.url + "servicio/delete"
     return this.http.post<ResponseI>(dir,office)
   }
+
 
   gTableWorkers():Observable<WorkersListI[]>{
     let dir = this.url + "trabajador/lista"
@@ -125,6 +129,7 @@ export class ApiService {
     return this.http.post<ResponseI>(dir,worker)
   }
 
+
   gTableAppointments():Observable<AppointmentsListI[]>{
     let dir = this.url + "cita/lista"
     return this.http.get<AppointmentsListI[]>(dir)
@@ -144,6 +149,7 @@ export class ApiService {
     let dir = this.url + "cita/delete"
     return this.http.post<ResponseI>(dir,appointment)
   }
+
 
   gTableInvoices():Observable<BillListI[]>{
     let dir = this.url + "factura/lista"

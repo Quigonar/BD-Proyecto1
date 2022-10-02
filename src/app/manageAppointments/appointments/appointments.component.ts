@@ -26,7 +26,6 @@ export class AppointmentsComponent implements OnInit {
 
   public passCita(index:number){
     this._citaService.setCita(this._citaService.getCitas()[index]);
-    this._citaService.lastindex=index;
   }
 
   public elimcita(index:number){

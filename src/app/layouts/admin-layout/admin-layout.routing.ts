@@ -63,9 +63,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edit-service',    component: EditServiceComponent},
 
     { path: 'billing',         component: BillingComponent },
-    { path:'prebilling',       component:PrebillingComponent},
+    { path: 'pre-billing',       component:PrebillingComponent},
 
     { path: 'appointments',      component: AppointmentsComponent },
-    { path: 'newappointment',    component:NewAppointmentsComponent},
-    { path: 'modifyappointment', component:ModifyAppointmentsComponent},
+    { path: 'add-appointment',    component:NewAppointmentsComponent},
+    { path: 'edit-appointment', component:ModifyAppointmentsComponent},
 ];
