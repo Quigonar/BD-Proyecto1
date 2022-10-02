@@ -3,7 +3,7 @@ export interface ServiceListI {
     Cost:string;
     Price:string;
     Duration:string;
-    Products:string;
+    Products:string[];
     PersonalReq:string;
     Punctuation:string;
 }

@@ -27,7 +27,7 @@ export class ServiceService {
   setTable(services:ServiceListI[]){
     this.tableData.dataRows = []
     for (var service of services) {
-      this.tableData.dataRows.push([service.Name,service.Cost,service.Price,service.Duration,service.Products,service.PersonalReq,service.Punctuation]) 
+      this.tableData.dataRows.push([service.Name,service.Cost,service.Price,service.Duration,service.Products.toString(),service.PersonalReq,service.Punctuation]) 
     }
   };
   getServices(){

@@ -31,12 +31,12 @@ export class AddServiceComponent implements OnInit {
   constructor(private api:ApiService) { }
 
   public addService() {
-    console.log(this.products.value.toString().replaceAll(',',', '))
+    //console.log(this.products.value.toString().replaceAll(',',', '))
     this.service.Name = this.name.value
     this.service.Cost = this.cost.value
     this.service.Price = this.price.value
     this.service.Duration = this.duration.value
-    this.service.Products = this.products.value.toString().replaceAll(',',', ')
+    this.service.Products = this.products.value
     this.service.PersonalReq = this.personalReq.value
     this.service.Punctuation = this.punctuation.value
 
@@ -71,7 +71,7 @@ export class AddServiceComponent implements OnInit {
       Cost: '',
       Price: '',
       Duration: '',
-      Products: '',
+      Products: [],
       PersonalReq: '',
       Punctuation: ''
     }

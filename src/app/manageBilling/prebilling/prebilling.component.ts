@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CitaService } from 'app/services/cita.service';
-import { BillingService } from 'app/services/billing.service';
 import { BillListI } from 'app/models/billlist.interface';
 import { ApiService } from 'app/services/api.service';
-import { WorkersListI } from 'app/models/workerslist.interface';
+import { FormControl } from '@angular/forms';
+import { AppointmentsListI } from 'app/models/appointmentslist.interface';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { ProductListI } from 'app/models/productlist.interface';
 
 
 @Component({
@@ -13,95 +15,89 @@ import { WorkersListI } from 'app/models/workerslist.interface';
 })
 export class PrebillingComponent implements OnInit {
 
-  public CitaFact:string[];
-  public Factura:string[];
-  public invoice:BillListI;
-  public workers:WorkersListI[];
-  
+  appointment:AppointmentsListI;
+  invoice:BillListI;
+  products: ProductListI[]
 
-  constructor(private _citaService:CitaService, private _billingService:BillingService, private api:ApiService) { }
+  appointNum:string;
+  name = new FormControl();
+  lastName = new FormControl();
+  ID = new FormControl();
+  licensePlate = new FormControl();
+  date = new FormControl();
+  office = new FormControl();
+  service = new FormControl();
+  empName = new FormControl();
+  empLName = new FormControl();
+  empID = new FormControl();
+  consumption = new FormControl();
 
-  public EmitirFact(){
-    //var NameEmp = document.getElementById("FactNameEm") as HTMLInputElement | null;
-    //var SurnameEmp= document.getElementById("FacSurnameEm") as HTMLInputElement | null;
-    var CedulaEmp = document.getElementById("CedulaEmpFact") as HTMLInputElement | null;
-    var EmmtBut =document.getElementById("BotonEmitir") as HTMLInputElement | null;
-    var BackBut =document.getElementById("BackButton") as HTMLInputElement | null;
+  productos = [];
+  selected = [];
+  dropdownSettings:IDropdownSettings={};
 
-    if(CedulaEmp.value==""){
-      alert("Debe completar el espacio de empleado solocitado");
-    }else{
-      EmmtBut.disabled=true;
-      CedulaEmp.disabled=true;
 
-      BackBut.innerHTML="Continuar";
-      this.invoice.IdCliente = this.CitaFact[3];
-      this.invoice.IdTrabajador = CedulaEmp.value;
-      this.invoice.AppointmentN = this.CitaFact[0];
-      this.invoice.DateTime = this.CitaFact[7];
-      this.invoice.LicenseP = this.CitaFact[4];
-      this.invoice.Service = this.CitaFact[5];
-      this.invoice.ClientN = this.CitaFact[1];
-      this.invoice.ClientLN = this.CitaFact[2];
-      this.invoice.Office = this.CitaFact[6];
+  constructor(private api:ApiService, private _citaService:CitaService) { }
 
+  public billAppointment(){
+      this.invoice.AppointmentN = this.appointNum
+      this.invoice.ClientN = this.name.value
+      this.invoice.ClientLN = this.lastName.value
+      this.invoice.IdCliente = this.ID.value
+      this.invoice.LicenseP = this.licensePlate.value
+      this.invoice.Office = this.office.value
+      this.invoice.Service = this.service.value
+      this.invoice.DateTime = this.date.value
+      this.invoice.EmployeeN = this.empName.value
+      this.invoice.EmployeeLN = this.empLName.value
+      this.invoice.IdTrabajador = this.empID.value
+      this.invoice.Extras = this.consumption.value
+      //console.log(this.invoice)
       this.api.addInvoice(this.invoice).subscribe(data => {
         console.log(data);
       })
-      alert("Factura generada correctamente, porfavor oprima el boton continuar")
-    }
-  }
-
-  public DownPDF(){
-    alert("Se logró descargar el PDF");
-  }
-
-  
-  ngOnInit() {
-    this.CitaFact=this._citaService.getCita();
-    this.Factura=[ '','','','','','','','','','','',''];
-    var NumCitas = document.getElementById("NumCitaFact") as HTMLInputElement | null;
-    var NameClientCita = document.getElementById("NombreClientFact") as HTMLInputElement | null;
-    var SurnameClientCita = document.getElementById("ApellidosClientFact") as HTMLInputElement | null;
-    var CedulaClientCita = document.getElementById("CedulaClientFact") as HTMLInputElement | null;
-    var PlacaClientCitas = document.getElementById("PlacaFact") as HTMLInputElement | null;
-    var FechayHoraCita = document.getElementById("FechaHoraFact") as HTMLInputElement | null;
-    var SucursalCita = document.getElementById("SucursalFact") as HTMLInputElement | null;
-    var ServicioCita = document.getElementById("ServicioFact") as HTMLInputElement | null;
-    var PriceAmmt=document.getElementById("Precio") as HTMLInputElement | null;
-
-    NumCitas.value=this.CitaFact[0];
-    NameClientCita.value=this.CitaFact[1];
-    SurnameClientCita.value=this.CitaFact[2];
-    CedulaClientCita.value=this.CitaFact[3];
-    PlacaClientCitas.value=this.CitaFact[4];
-    ServicioCita.value=this.CitaFact[5];
-    SucursalCita.value=this.CitaFact[6];
-    FechayHoraCita.value=this.CitaFact[7];
-    //PriceAmmt.innerHTML="Price: 1234567890";
-    /*this.service = {
-      serviceN:'',
-      serviceP:''
     }
 
-    this.service.serviceN = ServicioCita.value*/
-    /*this.api.getServicePrice(this.service).subscribe(data => {
-      PriceAmmt.innerHTML="Price: " + data;
-    })*/
+  ngOnInit() { 
 
-    /*this.Factura[0]=this.CitaFact[0];
-    this.Factura[1]=this.CitaFact[1];
-    this.Factura[2]=this.CitaFact[2];
-    this.Factura[3]=this.CitaFact[3];
-    this.Factura[4]=this.CitaFact[4];
-    this.Factura[5]=this.CitaFact[5];
-    this.Factura[6]=this.CitaFact[6];
-    this.Factura[7]=this.CitaFact[7];*/
+    let cita = this._citaService.getCita()
+    this.appointNum = cita[0]
+    this.name.setValue(cita[1])
+    this.lastName.setValue(cita[2])
+    this.ID.setValue(cita[3])
+    this.licensePlate.setValue(cita[4])
+    this.office.setValue(cita[6])
+    this.service.setValue(cita[5])
+    this.date.setValue(cita[7])
+    this.empName.setValue(cita[8])
+    this.empLName.setValue(cita[9])
+    this.empID.setValue(cita[10])
 
-    this.api.gTableWorkers().subscribe(data => {
-      console.log(data)
-      this.workers = data;
-    });
+    this.name.disable();
+    this.lastName.disable();
+    this.ID.disable();
+    this.licensePlate.disable();
+    this.office.disable();
+    this.service.disable();
+    this.date.disable();
+    this.empName.disable();
+    this.empLName.disable();
+    this.empID.disable();
+
+    this.productos = ["Chips", "Coca", "Galletas"]
+    this.api.gTableProducts().subscribe(data => {
+      this.products = data
+      for (let product of this.products){
+        this.productos.push(product.Name)
+      }
+    })
+    this.selected = [];
+    this.dropdownSettings = {
+      enableCheckAll: false,
+      textField: 'product_name',
+      noDataAvailablePlaceholderText: "There is no products added in the system",
+      allowSearchFilter: true
+    }
 
     this.invoice = {
       Billnum:'',
@@ -117,7 +113,8 @@ export class PrebillingComponent implements OnInit {
       LicenseP:'',
       Office:'',
       Price:'',
-      IdServicio:''
+      IdServicio:'',
+      Extras:[],
     }
   }
 

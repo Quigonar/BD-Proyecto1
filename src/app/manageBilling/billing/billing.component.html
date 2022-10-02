@@ -20,20 +20,17 @@
                             <tbody>
                                 <tr *ngFor="let row of tableData1.dataRows; let indexOfFact=index;">
                                     <td *ngFor="let cell of row">{{cell}}</td>
-                                    <td>
+                                    <td class="td-actions text-right">
                                         <button (click)="PDFGen(indexOfFact)" type="button" rel="tooltip" title="Download" class="btn btn-info btn-simple btn-xs">
-                                            Download PDF
+                                            <i class="fa fa-download"></i>
                                         </button>
+                                        <button (click)="elimInvoice(indexOfFact)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div>
-                        <a href="#/appointments">
-                            <button type="submit" class="btn btn-info btn-fill pull-right" id="BackButton">
-                                Back
-                            </button>
-                        </a>
                     </div>
                 </div>        
             </div>

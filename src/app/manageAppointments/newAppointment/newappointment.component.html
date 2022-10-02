@@ -43,11 +43,9 @@
                                         <label>Office</label>
                                         <input [formControl]="office" list="OfficeList" type="text" class="form-control" placeholder="Office">
                                         <datalist id="OfficeList">
-                                            <option value="Cartago Centro">Cartago Centro</option>
-                                            <option value="Oreamuno de Cartago">Oreamuno de Cartago</option>
-                                            <option value="Pinares Curridabat">Pinares Curridabat</option>
-                                            <option value="Rio Oro Santa Ana">Rio Oro Santa Ana</option>
-                                            <option value="Ciudad Panama">Ciudad Panama</option>
+                                            <option *ngFor="let office of offices" [value]="office.Name">
+                                                {{office.City}}, {{office.Canton}}
+                                            </option>
                                         </datalist>
                                     </div>
                                 </div>

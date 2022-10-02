@@ -156,8 +156,12 @@ export class ApiService {
     return this.http.get<BillListI[]>(dir)
   }
   addInvoice(invoice:BillListI):Observable<ResponseI>{
-    console.log(invoice)
+    //console.log(invoice)
     let dir = this.url + "factura/guardar"
+    return this.http.post<ResponseI>(dir,invoice)
+  }
+  deleteInvoice(invoice:BillListI):Observable<ResponseI>{
+    let dir = this.url + "factura/delete"
     return this.http.post<ResponseI>(dir,invoice)
   }
 }

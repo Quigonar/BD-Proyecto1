@@ -18,14 +18,15 @@ export class CitaService {
 
   constructor() { 
     this.tableData = {
-      headerRow: [ 'Appointment #','Client Name', 'Client Surname','Client ID','License Plate', 'Service','Office','Date/Time'],
-      dataRows: [ ['0','Marcos','Gonzalez','118320994','ABC-103','Lavado','Cartago','2022-10-02T01:04'] ]
+      headerRow: [ 'Appointment #','Client Name', 'Client Last Name','Client ID','License Plate', 'Service','Office','Date/Time', 'Employee Name', 'Employee Last Name', 'Employee ID'],
+      dataRows: [ ['0','Marcos','Gonzalez','118320994','ABC-103','Lavado','Cartago','2022-10-02T01:04', 'Marcos', 'Gonzalez', '118320994'] ]
     }
   }
   
   getTable() {
     return this.tableData
     };
+    
   setTable(citas:AppointmentsListI[]){
     this.tableData.dataRows = []
     for (var cita of citas) {
@@ -38,7 +39,7 @@ export class CitaService {
   getCita(){
     return this.cita
   };
-  
+
   setCita(cita_: string[]){
     this.cita = cita_
   };

@@ -13,4 +13,5 @@ export interface BillListI {
     Office:string;
     Price:string;
     IdServicio:string;
+    Extras:string[];
 }

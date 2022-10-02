@@ -42,7 +42,7 @@ export class ServicesComponent implements OnInit {
       Cost:'',
       Price:'',
       Duration:'',
-      Products:'',
+      Products:[],
       PersonalReq:'',
       Punctuation:''
     }

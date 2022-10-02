@@ -1,85 +1,95 @@
-<div class="main-content">
+<div class="main-content" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Billing</h4>
+                        <h4 class="title">Billing Appointment</h4>
                     </div>
                     <div class="content">
                         <form>
-                            <h5>Appointment to bill</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Client's Information</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input [formControl]="name" type="text" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input [formControl]="lastName" type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>ID</label>
+                                        <input [formControl]="ID" type="text" class="form-control" placeholder="ID">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Vehicle's License Plate</label>
+                                        <input [formControl]="licensePlate" type="text" class="form-control" placeholder="ABC-123/123456">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Appointment's Information</h5>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-5">
-                                    <p>Cita:</p>
-                                    <input id="NumCitaFact" name="Citas" disabled/>
-                                </div>
-                            </div>
-                            <h5>Client's Information</h5>
-                            <div class="row">
-                                <div class="header">
-                                    <h6>Full Name</h6>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input disabled type="text" class="form-control" placeholder="Nombre" id="NombreClientFact">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Surname</label>
-                                            <input disabled type="text" class="form-control" placeholder="Apellidos"  id="ApellidosClientFact">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>ID</label>
-                                            <input disabled type="text" class="form-control" placeholder="1-2345-6789"  id="CedulaClientFact">
-                                        </div>
+                                    <div class="form-group">
+                                        <label>Office</label>
+                                        <input [formControl]="office" type="text" class="form-control" placeholder="Office">
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="header">
-                                    <h6>Vehicle Details</h6>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>License Plate</label>
-                                            <input disabled type="text" class="form-control" placeholder="Placa" id="PlacaFact">
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Service Required</label>
+                                        <input [formControl]="service" type="text" class="form-control" placeholder="Service">
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="header">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Date & Time</label>
-                                            <input disabled type="datetime-local" id="FechaHoraFact">
-                                        </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Date & Time</label>
+                                        <input [formControl]="date" type="datetime-local" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="header">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Office</label>
-                                            <input disabled type="text" class="form-control" placeholder="Sucursal" id="SucursalFact">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label>Service</label>
-                                            <input  disabled type="text" class="form-control" placeholder="Servicio" id="ServicioFact">
-                                            
-                                        </div>
-                                    </div>
-                                    <p id="Precio"></p>
+                                <div class="col-md-6">
+                                    <h5>Employee's Information</h5>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input [formControl]="empName" type="text" class="form-control" placeholder="Office">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input [formControl]="empLName" type="text" class="form-control" placeholder="Service">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>ID</label>
+                                        <input [formControl]="empID" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
@@ -89,37 +99,27 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h5>Employee's Information</h5>
+                        <h5>Client's Consumption</h5>
                     </div>
                     <div class="content">
                         <form>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>ID</label>
-                                        <input list="WorkerList" type="text" class="form-control" placeholder="1-2345-6789"  id="CedulaEmpFact">
-                                        <datalist id="WorkerList">
-                                            <option *ngFor="let worker of workers" [value]="worker.ID">
-                                                {{worker.LastN}}, {{worker.FirstN}}
-                                            </option>
-                                        </datalist>
+                                        <label>Products Consumed</label>
+                                        <ng-multiselect-dropdown
+                                            [placeholder]="'Select the products consumed by the client'"
+                                            [settings]="dropdownSettings"
+                                            [data]="productos"
+                                            [formControl]="consumption">
+                                        </ng-multiselect-dropdown>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <button type="submit" class="btn btn-info btn-fill pull-right" id="BotonEmitir" (click)="EmitirFact()">
-                        Generate Invoice
-                    </button>
-                    <button (click)="DownPDF()" type="submit" class="btn btn-info btn-fill pull-right" id="BotonPDF">
-                        Download PDF Invoice
-                    </button>
-                    <a href="#/billing">
-                        <button type="submit" class="btn btn-info btn-fill pull-right" id="BackButton">
-                            Back
-                        </button>
-                    </a>
-                </div>        
+                </div>
+                <a href="#/appointments"><button (click)="billAppointment()" type="submit" class="btn btn-info btn-fill pull-right">Bill Appointment</button></a>
             </div>
         </div>
     </div>

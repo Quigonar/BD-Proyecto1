@@ -7,4 +7,7 @@ export interface AppointmentsListI {
     Service:string;
     Office:string;
     DateTime:string;
+    EmpN:string;
+    EmpLN:string;
+    EmpID:string;
 }

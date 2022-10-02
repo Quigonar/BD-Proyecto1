@@ -53,7 +53,10 @@ export class AppointmentsComponent implements OnInit {
       LicenseP: '',
       Office: '',
       Service: '',
-      DateTime: ''
+      DateTime: '',
+      EmpN:'',
+      EmpLN:'',
+      EmpID:'',
     }
   }
  

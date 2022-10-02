@@ -31,12 +31,12 @@ export class EditServiceComponent implements OnInit {
   constructor(private api:ApiService, private _serviceService:ServiceService) { }
 
   public editService() {
-    console.log(this.products.value.toString().replaceAll(',',', '))
+    //console.log(this.products.value.toString().replaceAll(',',', '))
     this.service.Name = this.name.value
     this.service.Cost = this.cost.value
     this.service.Price = this.price.value
     this.service.Duration = this.duration.value
-    this.service.Products = this.products.value.toString().replaceAll(',',', ')
+    this.service.Products = this.products.value
     this.service.PersonalReq = this.personalReq.value
     this.service.Punctuation = this.punctuation.value
 
@@ -80,7 +80,7 @@ export class EditServiceComponent implements OnInit {
       Cost: '',
       Price: '',
       Duration: '',
-      Products: '',
+      Products: [],
       PersonalReq: '',
       Punctuation: ''
     }

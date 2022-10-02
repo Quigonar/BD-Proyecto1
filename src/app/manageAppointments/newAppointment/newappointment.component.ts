@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { ServiceService } from 'app/services/service.service';
 import { ServiceListI } from 'app/models/servicelist.interface';
 import { ClientsListI } from 'app/models/clientslist.interface';
+import { OfficeListI } from 'app/models/officelist.interface';
 
 
 
@@ -18,7 +19,8 @@ import { ClientsListI } from 'app/models/clientslist.interface';
 export class NewAppointmentsComponent implements OnInit {
   appointment:AppointmentsListI;
   services:ServiceListI[]
-  clients:ClientsListI[];
+  clients:ClientsListI[]
+  offices:OfficeListI[]
 
   name = new FormControl();
   lastName = new FormControl();
@@ -54,7 +56,10 @@ export class NewAppointmentsComponent implements OnInit {
       LicenseP: '',
       Office: '',
       Service: '',
-      DateTime: ''
+      DateTime: '',
+      EmpN:'',
+      EmpLN:'',
+      EmpID:'',
     }
 
     this.api.gTableServices().subscribe(data=> {
@@ -63,6 +68,10 @@ export class NewAppointmentsComponent implements OnInit {
 
     this.api.gTableClients().subscribe(data=> {
       this.clients = data
+    })
+
+    this.api.gTableOffices().subscribe(data=> {
+      this.offices = data
     })
   }
 
