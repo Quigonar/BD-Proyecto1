@@ -25,12 +25,13 @@ export class LoginComponent implements OnInit {
     this.api.login(form).subscribe(data => {
       console.log(data)
       if (data.status == "ok" && data.type == "admin") {
-        //localStorage.setItem("status", data.status)
-        localStorage.setItem("clientIndex",data.message)
+        //hacer que corra el layout del admin
+      }
+      else if (data.status == "ok" && data.type == "client") {
+        localStorage.setItem("client",data.message)
+        //hacer que corra el layout del cliente sabiendo el indice o id del cliente
       }
     })
-    /*console.log(form)
-    this.router.navigate(['admin/workers'])*/
     
   }
 }
