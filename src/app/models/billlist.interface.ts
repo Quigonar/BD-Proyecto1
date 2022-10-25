@@ -14,4 +14,5 @@ export interface BillListI {
     Price:string;
     IdServicio:string;
     Extras:string[];
+    PaymentM:string;
 }

@@ -49,7 +49,8 @@ export class ClientsComponent implements OnInit {
       City: '',
       Country: '',
       Email: '',
-      Password: ''
+      Password: '',
+      Points: ''
     }
   }
 

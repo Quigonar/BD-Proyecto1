@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         //hacer que corra el layout del admin
       }
       else if (data.status == "ok" && data.type == "client") {
-        localStorage.setItem("client",data.message)
+        //localStorage.setItem("client",data.id)
         //hacer que corra el layout del cliente sabiendo el indice o id del cliente
       }
     })

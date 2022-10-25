@@ -16,8 +16,8 @@ export class ClientsService {
 
   constructor() { 
     this.tableData = {
-      headerRow: [ 'First Name', 'Last Name', 'Phone Number', 'ID', 'Email', 'Address', 'City', 'Country', 'Username', 'Password'],
-      dataRows: [['Marcos', 'Gonzalez', '85097252', '118320994','quigonar@gmail.com','Residencial Hacienda del Sol', 'San Jose', 'Costa Rica', 'quigonar','password']]
+      headerRow: [ 'First Name', 'Last Name', 'Phone Number', 'ID', 'Email', 'Address', 'City', 'Country', 'Username', 'Password', 'Points' ],
+      dataRows: [['Marcos', 'Gonzalez', '85097252', '118320994','quigonar@gmail.com','Residencial Hacienda del Sol', 'San Jose', 'Costa Rica', 'quigonar','password', '3300']]
     }
   }
   
@@ -27,7 +27,7 @@ export class ClientsService {
   setTable(clients:ClientsListI[]){
     this.tableData.dataRows = []
     for (var client of clients) {
-      this.tableData.dataRows.push([client.FirstN,client.LastN,client.PhoneNum,client.ID,client.Email,client.Address,client.City,client.Country,client.Username,client.Password]) 
+      this.tableData.dataRows.push([client.FirstN,client.LastN,client.PhoneNum,client.ID,client.Email,client.Address,client.City,client.Country,client.Username,client.Password, client.Points]) 
     }
   };
   getClients(){
