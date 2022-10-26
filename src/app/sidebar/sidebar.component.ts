@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'app/services/user.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -8,9 +9,6 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    /*{ path: '/home', title: 'Home Screen',  icon: 'pe-7s-home', class: '' },
-    { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },*/
-    
     { path: '/workers', title: 'Manage Workers',  icon:'pe-7s-users', class: '' },
     { path: '/offices', title: 'Manage Offices', icon:'pe-7s-server', class:''},
     { path: '/providers', title: 'Manage Providers', icon:'pe-7s-network', class:''},
@@ -19,8 +17,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/clients', title: 'Manage Clients',  icon:'pe-7s-users', class: '' },
     { path: '/appointments', title: 'Appointments',  icon:'pe-7s-drawer', class: '' },
     { path: '/billing', title: 'Billing',  icon:'pe-7s-note2', class: '' },
-    /*{ path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },*/
 ];
+
+export const ROUTES2: RouteInfo[] = [
+    { path: '/clients', title: 'Manage Clients',  icon:'pe-7s-users', class: '' },
+    { path: '/appointments', title: 'Appointments',  icon:'pe-7s-drawer', class: '' },
+    { path: '/billing', title: 'Billing',  icon:'pe-7s-note2', class: '' },
+]
 
 @Component({
   selector: 'app-sidebar',
@@ -29,10 +32,16 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(public _userService:UserService) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    if (this._userService.getType()) {
+      this.menuItems = ROUTES2.filter(menuItem => menuItem)
+    }
+    else {
+      this.menuItems = ROUTES.filter(menuItem => menuItem)
+    }
+
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
