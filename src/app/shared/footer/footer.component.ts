@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'app/services/api.service'
-
+import {UserService} from 'app/services/user.service'
 declare var $:any;
 
 @Component({
@@ -11,5 +11,5 @@ declare var $:any;
 export class FooterComponent{
     test : Date = new Date();
     
-    constructor() { }
+    constructor(public _userService:UserService) { }
 }
