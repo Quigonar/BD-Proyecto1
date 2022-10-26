@@ -57,3 +57,14 @@
     opacity: 1;
     color: #FFFFFF;
 }
+
+li.disabled{
+    cursor: not-allowed;
+    opacity: .1;
+}
+
+a.disabled{
+    cursor: not-allowed;
+    opacity: .1;
+}
+
