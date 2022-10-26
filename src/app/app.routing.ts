@@ -3,25 +3,35 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
+
+import { LoginComponent } from './layouts/login/login.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 
 const routes: Routes =[
-  {
-    path: '',
-    redirectTo: 'workers',
-    pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
+  { path: '', redirectTo: 'login', pathMatch: 'full'}, 
+  { path: '', component:LoginComponent },
+    /*children: [{
+    path: 'admin', component: AdminLayoutComponent, children: [{
+      path: '', loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
+    }]},
+    { path: 'client', component:ClientLayoutComponent, children: [{
+        path: '', loadChildren: () => import('./layouts/client-layout/client-layout.module').then(x => x.ClientLayoutModule)
+      }]}]}*/
+  { path: '', component: AdminLayoutComponent,
     children: [
         {
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
-  }]},
-  {
-    path: '**',
-    redirectTo: 'workers'
-  }
+  }]}
+
+  /*{ path: '', component:ClientLayoutComponent,
+    children: [
+      {
+    path: '',
+    loadChildren: () => import('./layouts/client-layout/client-layout.module').then(x => x.ClientLayoutModule)
+  }]}*/
+  
 ];
 
 @NgModule({

@@ -31,6 +31,7 @@ export class PrebillingComponent implements OnInit {
   empLName = new FormControl();
   empID = new FormControl();
   consumption = new FormControl();
+  payM = new FormControl();
 
   productos = [];
   selected = [];
@@ -52,6 +53,7 @@ export class PrebillingComponent implements OnInit {
       this.invoice.EmployeeLN = this.empLName.value
       this.invoice.IdTrabajador = this.empID.value
       this.invoice.Extras = this.consumption.value
+      this.invoice.PaymentM = this.payM.value
       //console.log(this.invoice)
       this.api.addInvoice(this.invoice).subscribe(data => {
         console.log(data);
@@ -84,7 +86,7 @@ export class PrebillingComponent implements OnInit {
     this.empLName.disable();
     this.empID.disable();
 
-    this.productos = ["Chips", "Coca", "Galletas"]
+    //this.productos = ["Chips", "Coca", "Galletas"]
     this.api.gTableProducts().subscribe(data => {
       this.products = data
       for (let product of this.products){
@@ -115,6 +117,7 @@ export class PrebillingComponent implements OnInit {
       Price:'',
       IdServicio:'',
       Extras:[],
+      PaymentM:''
     }
   }
 

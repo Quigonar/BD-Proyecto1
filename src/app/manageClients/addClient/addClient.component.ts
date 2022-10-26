@@ -54,7 +54,8 @@ export class AddClientComponent implements OnInit {
       City: '',
       Country: '',
       Email: '',
-      Password: ''
+      Password: '',
+      Points: ''
     }
   }
 

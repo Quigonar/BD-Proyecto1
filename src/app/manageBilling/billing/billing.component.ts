@@ -49,6 +49,7 @@ export class BillingComponent implements OnInit {
       Price: '',
       IdServicio: '',
       Extras: [],
+      PaymentM: ''
     }
   }
 

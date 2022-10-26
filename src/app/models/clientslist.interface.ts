@@ -9,4 +9,5 @@ export interface ClientsListI {
     Country:string;
     Username:string;
     Password:string;
+    Points:string;
 }

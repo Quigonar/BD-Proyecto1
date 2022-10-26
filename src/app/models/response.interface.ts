@@ -1,5 +1,5 @@
 export interface ResponseI{
-    success:string;
-    message:string;
-    result:string;
+    status:string;
+    id:string;
+    type:string;
 }

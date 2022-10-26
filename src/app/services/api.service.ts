@@ -10,6 +10,7 @@ import { OfficeListI } from 'app/models/officelist.interface';
 import { ProviderListI } from 'app/models/providerlist.interface';
 import { ProductListI } from 'app/models/productlist.interface';
 import { ServiceListI } from 'app/models/servicelist.interface';
+import { LoginInterface } from 'app/models/login.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class ApiService {
   url:string = "https://localhost:7102/"
 
   constructor(private http:HttpClient) { }
+
+  login(form:LoginInterface):Observable<ResponseI>{
+    console.log(form)
+    let dir = this.url + "login"
+    return this.http.post<ResponseI>(dir,form)
+  }
 
   gTableClients():Observable<ClientsListI[]>{
     let dir = this.url + "cliente/lista"

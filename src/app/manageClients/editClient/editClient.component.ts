@@ -55,7 +55,8 @@ export class EditClientComponent implements OnInit {
       City: '',
       Country: '',
       Email: '',
-      Password: ''
+      Password: '',
+      Points: ''
     }
     let client = this._clientsService.getClient()
     this.username.setValue(client[8]);
