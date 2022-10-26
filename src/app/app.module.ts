@@ -13,6 +13,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 
 import { AppComponent } from './app.component';
 
+import { UserComponent } from './user/user.component';
+
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({

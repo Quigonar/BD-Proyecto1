@@ -20,6 +20,7 @@ import { OfficeService } from 'app/services/office.service';
 import { ProviderService } from 'app/services/provider.service';
 import { ProductService } from 'app/services/product.service';
 import { ServiceService } from 'app/services/service.service';
+import { UserService } from 'app/services/user.service';
 
 
 import { ClientsComponent } from '../../manageClients/clients/clients.component';
@@ -52,6 +53,7 @@ import { ModifyAppointmentsComponent } from 'app/manageAppointments/modifyAppoin
 
 import { BillingComponent } from '../../manageBilling/billing/billing.component';
 import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.component';
+
 
 @NgModule({
   imports: [
@@ -97,6 +99,8 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
 
     BillingComponent,
     PrebillingComponent,
+
+    
     
     
   ],
@@ -109,6 +113,7 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
     ServiceService,
     BillingService,
     CitaService,
+    UserService,
   ]
 })
 
