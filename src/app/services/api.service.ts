@@ -16,7 +16,7 @@ import { LoginInterface } from 'app/models/login.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  url:string = "https://localhost:7102/"
+  url:string = "https://localhost:44302/"
 
   constructor(private http:HttpClient) { }
 
@@ -128,12 +128,11 @@ export class ApiService {
   editWorkerAPI(worker:WorkersListI):Observable<ResponseI>{
     //console.log(worker)
     let dir = this.url + "trabajador/update"
-    return this.http.post<ResponseI>(dir,worker)
+    return this.http.put<ResponseI>(dir,worker)
   }
   deleteWorker(worker:WorkersListI):Observable<ResponseI>{
-    //console.log(worker)
-    let dir = this.url + "trabajador/delete"
-    return this.http.post<ResponseI>(dir,worker)
+    let dir = this.url + "trabajador/delete/" + worker.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
