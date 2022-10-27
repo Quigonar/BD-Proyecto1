@@ -23,8 +23,7 @@ export class EditOfficeComponent implements OnInit {
   name = new FormControl();
   phoneNum = new FormControl();
   opDate = new FormControl();
-  manName = new FormControl();
-  manLName = new FormControl();
+  manID = new FormControl();
   manInDate = new FormControl();
   id = new FormControl();
 
@@ -38,8 +37,7 @@ export class EditOfficeComponent implements OnInit {
     this.office.Name = this.name.value
     this.office.PhoneNum = this.phoneNum.value
     this.office.OpeningDate = this.opDate.value
-    this.office.ManagerN = this.manName.value
-    this.office.ManagerLN = this.manLName.value
+    this.office.ManagerID = this.manID.value
     this.office.ManagerInDate = this.manInDate.value
 
     this.api.editOfficeAPI(this.office).subscribe(data => {
@@ -62,17 +60,17 @@ export class EditOfficeComponent implements OnInit {
       OpeningDate: '',
       ManagerN: '',
       ManagerLN: '',
+      ManagerID: '',
       ManagerInDate: ''
     }
-    
+
     let office = this._officeService.getOffice()
     this.city.setValue(office[1]);
     this.canton.setValue(office[2]);
     this.district.setValue(office[3]);
     this.phoneNum.setValue(office[4]);
     this.opDate.setValue(office[5]);
-    this.manName.setValue(office[6]);
-    this.manLName.setValue(office[7]);
+    this.manID.setValue(office[10]);
     this.manInDate.setValue(office[8]);
     this.name.setValue(office[0]);
     this.id.setValue(office[9]);

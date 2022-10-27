@@ -9,5 +9,6 @@ export interface OfficeListI {
     OpeningDate:string;
     ManagerN:string;
     ManagerLN:string;
+    ManagerID:string;
     ManagerInDate:string;
 }

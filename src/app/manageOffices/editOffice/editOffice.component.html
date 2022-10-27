@@ -50,24 +50,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <div class="form-group">
-                                        <label>Manager Name</label>
-                                        <input [formControl]="manName" list="WorkersN" type="text" class="form-control" placeholder="Manager Name">
+                                        <label>Manager ID</label>
+                                        <input [formControl]="manID" list="WorkersN" type="text" class="form-control" placeholder="Manager ID">
                                         <datalist id="WorkersN">
-                                            <option *ngFor="let worker of workers" [value]="worker.Name">
-                                                {{worker.FirstN}}
-                                            </option>
-                                        </datalist>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Manager Last Name</label>
-                                        <input [formControl]="manLName" list="WorkersLN" type="text" class="form-control" placeholder="Manager Last Name">
-                                        <datalist id="WorkersN">
-                                            <option *ngFor="let worker of workers" [value]="worker.LastN">
-                                                {{worker.LastN}}
+                                            <option *ngFor="let worker of workers" [value]="worker.ID">
+                                                {{worker.FirstLN}}, {{worker.FirstN}}
                                             </option>
                                         </datalist>
                                     </div>

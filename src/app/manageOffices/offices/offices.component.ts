@@ -22,7 +22,7 @@ export class OfficesComponent implements OnInit {
     this._officeService.setOffice(this._officeService.getOffices()[index]);
   }
 
-  public elimClient(index: number) {
+  public elimOffice(index: number) {
     this._officeService.setOffice(this._officeService.getOffices()[index]);
     this.officeD = this._officeService.getOffice();
     this.office.ID = this.officeD[9];
@@ -49,6 +49,7 @@ export class OfficesComponent implements OnInit {
       OpeningDate: '',
       ManagerN: '',
       ManagerLN: '',
+      ManagerID: '',
       ManagerInDate: '',
     }
   }
