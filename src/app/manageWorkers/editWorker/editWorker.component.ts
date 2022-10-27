@@ -69,5 +69,7 @@ export class EditWorkerComponent implements OnInit {
     this.password.setValue(worker[8])
     this.role.setValue(worker[9])
     this.salary.setValue(worker[10])
+
+    this.ID.disable();
   }
 }

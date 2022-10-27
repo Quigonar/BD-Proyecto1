@@ -50,6 +50,7 @@ export class AddOfficeComponent implements OnInit {
     });
 
     this.office = {
+      ID:'',
       Name: '',
       City: '',
       Canton: '',

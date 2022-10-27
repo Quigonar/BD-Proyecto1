@@ -49,6 +49,8 @@ export class EditProviderComponent implements OnInit {
       Email: '',
       Contact: ''
     }
+
+    this.ID.disable();
   }
 
 }

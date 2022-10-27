@@ -16,8 +16,8 @@ public office: string[];
 
 constructor() { 
     this.tableData = {
-    headerRow: [ 'Name', 'City', 'Canton', 'District', 'Phone Number', 'Opening Date', 'Manager Name', 'Manager Last Name', 'Starting Date of Manager'],
-    dataRows: [['DetailTEC', 'Cartago', 'Cartago', 'Dulce Nombre', '22031547', '2019-08-16','Marcos','Gonzalez', '2019-08-18']]
+    headerRow: [ 'Name', 'City', 'Canton', 'District', 'Phone Number', 'Opening Date', 'Manager Name', 'Manager Last Name', 'Starting Date of Manager', 'ID'],
+    dataRows: [['DetailTEC', 'Cartago', 'Cartago', 'Dulce Nombre', '22031547', '2019-08-16','Marcos','Gonzalez', '2019-08-18', '01']]
     }
 }
 
@@ -27,7 +27,7 @@ getTable() {
 setTable(offices:OfficeListI[]){
     this.tableData.dataRows = []
     for (var office of offices) {
-    this.tableData.dataRows.push([office.Name,office.City,office.Canton,office.District,office.PhoneNum,office.OpeningDate,office.ManagerN,office.ManagerLN,office.ManagerInDate]) 
+    this.tableData.dataRows.push([office.Name,office.City,office.Canton,office.District,office.PhoneNum,office.OpeningDate,office.ManagerN,office.ManagerLN,office.ManagerInDate,office.ID]) 
     }
 };
 getOffices(){

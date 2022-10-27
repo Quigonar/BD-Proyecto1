@@ -54,11 +54,11 @@ export class ApiService {
   }
   editOfficeAPI(office:OfficeListI):Observable<ResponseI>{
     let dir = this.url + "sucursal/update"
-    return this.http.post<ResponseI>(dir,office)
+    return this.http.put<ResponseI>(dir,office)
   }
   deleteOffice(office:OfficeListI):Observable<ResponseI>{
-    let dir = this.url + "sucursal/delete"
-    return this.http.post<ResponseI>(dir,office)
+    let dir = this.url + "sucursal/delete/" + office.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -148,12 +148,12 @@ export class ApiService {
   editAppointmentAPI(appointment:AppointmentsListI):Observable<ResponseI>{
     //console.log(appointment)
     let dir = this.url + "cita/update"
-    return this.http.post<ResponseI>(dir,appointment)
+    return this.http.put<ResponseI>(dir,appointment)
   }
   deleteAppointment(appointment:AppointmentsListI):Observable<ResponseI>{
     //console.log(appointment)
-    let dir = this.url + "cita/delete"
-    return this.http.post<ResponseI>(dir,appointment)
+    let dir = this.url + "cita/delete/" + appointment.AppointmentN
+    return this.http.delete<ResponseI>(dir)
   }
 
 

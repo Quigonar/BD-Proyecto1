@@ -26,6 +26,7 @@ export class EditOfficeComponent implements OnInit {
   manName = new FormControl();
   manLName = new FormControl();
   manInDate = new FormControl();
+  id = new FormControl();
 
   constructor(private _officeService:OfficeService, private api:ApiService) { }
 
@@ -51,8 +52,8 @@ export class EditOfficeComponent implements OnInit {
       console.log(data)
       this.workers = data;
     });
-
     this.office = {
+      ID: '',
       Name: '',
       City: '',
       Canton: '',
@@ -63,6 +64,7 @@ export class EditOfficeComponent implements OnInit {
       ManagerLN: '',
       ManagerInDate: ''
     }
+    
     let office = this._officeService.getOffice()
     this.city.setValue(office[1]);
     this.canton.setValue(office[2]);
@@ -73,6 +75,8 @@ export class EditOfficeComponent implements OnInit {
     this.manLName.setValue(office[7]);
     this.manInDate.setValue(office[8]);
     this.name.setValue(office[0]);
+    this.id.setValue(office[9]);
+
   }
 
 }

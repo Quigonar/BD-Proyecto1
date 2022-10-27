@@ -69,5 +69,7 @@ export class EditClientComponent implements OnInit {
     this.country.setValue(client[7]);
     this.email.setValue(client[4]);
     this.password.setValue(client[9]);
+
+    this.ID.disable();
   }
 }
