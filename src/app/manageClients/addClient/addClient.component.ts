@@ -17,6 +17,7 @@ export class AddClientComponent implements OnInit {
   ID = new FormControl();
   firstName = new FormControl();
   lastName = new FormControl();
+  secondlastName = new FormControl();
   address = new FormControl();
   city = new FormControl();
   country = new FormControl();
@@ -28,15 +29,13 @@ export class AddClientComponent implements OnInit {
   public addClient() {
     
     this.client.Username = this.username.value
-    this.client.PhoneNum = this.phoneNumber.value
+    this.client.PhoneNum = (this.phoneNumber.value.replace(" ", "")).split(",")
     this.client.ID = this.ID.value
     this.client.FirstN = this.firstName.value
-    this.client.LastN = this.lastName.value
-    this.client.Address = this.address.value
-    this.client.City = this.city.value
-    this.client.Country = this.country.value
+    this.client.FirstLN = this.lastName.value
+    this.client.SecondLN = this.secondlastName.value
+    this.client.Address = (this.address.value.replace(" ", "")).split(",")
     this.client.Email = this.email.value
-    this.client.Password = this.password.value
 
     this.api.addClient(this.client).subscribe(data => {
       console.log(data);
@@ -46,13 +45,12 @@ export class AddClientComponent implements OnInit {
   ngOnInit() {
     this.client = {
       Username: '',
-      PhoneNum: '',
+      PhoneNum: [],
       ID: '',
       FirstN: '',
-      LastN: '',
-      Address: '',
-      City: '',
-      Country: '',
+      FirstLN: '',
+      SecondLN: '',
+      Address: [],
       Email: '',
       Password: '',
       Points: ''

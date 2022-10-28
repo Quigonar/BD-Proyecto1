@@ -23,11 +23,12 @@ export class EditProductComponent implements OnInit {
   constructor(private api:ApiService, private _productService:ProductService) { }
 
   public editProduct() {
-    
+    let productE = this._productService.getProduct()
     this.product.Name = this.name.value
     this.product.Brand = this.brand.value
     this.product.Price = this.price.value
     this.product.Provider = this.provider.value
+    this.product.ID = productE[4]
 
     this.api.editProductAPI(this.product).subscribe(data => {
       console.log(data);
@@ -36,6 +37,7 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit() {
     this.product = {
+      ID: '',
       Name: '',
       Brand: '',
       Price: '',

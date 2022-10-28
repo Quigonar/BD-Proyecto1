@@ -12,7 +12,6 @@ export interface BillListI {
     LicenseP:string;
     Office:string;
     Price:string;
-    IdServicio:string;
     Extras:string[];
     PaymentM:string;
 }

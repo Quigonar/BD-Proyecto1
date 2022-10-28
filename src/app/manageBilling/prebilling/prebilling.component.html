@@ -106,13 +106,15 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Products Consumed</label>
+                                        <!--<label>Products Consumed</label>
                                         <ng-multiselect-dropdown
                                             [placeholder]="'Select the products consumed by the client'"
                                             [settings]="dropdownSettings"
                                             [data]="productos"
                                             [formControl]="consumption">
-                                        </ng-multiselect-dropdown>
+                                        </ng-multiselect-dropdown>-->
+                                        <label>Products Consumed</label>
+                                        <input [formControl]="consumption" type="text" class="form-control" placeholder="Products Consumed">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -122,13 +124,32 @@
                                         <datalist id="payM">
                                             <option value="Efectivo">Efectivo</option>
                                             <option value="Tarjeta">Tarjeta</option>
-                                            <option value="Por puntos">Por puntos</option>
+                                            <option value="Puntos">Puntos</option>
                                         </datalist>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Productos Disponibles</h4>
+                    </div>
+                    <div class="content table-full-width">
+                        <table class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th *ngFor="let cell of productos.headerRow">{{ cell }}</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let row of productos.dataRows; let indexOfClient=index;">
+                                      <td *ngFor="let cell of row">{{cell}}</td>
+                                  </tr>
+                              </tbody>
+                        </table>
+                  </div>
                 </div>
                 <a href="#/appointments"><button (click)="billAppointment()" type="submit" class="btn btn-info btn-fill pull-right">Bill Appointment</button></a>
             </div>

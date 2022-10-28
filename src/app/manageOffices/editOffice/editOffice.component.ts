@@ -30,7 +30,7 @@ export class EditOfficeComponent implements OnInit {
   constructor(private _officeService:OfficeService, private api:ApiService) { }
 
   public editOffice() {
-    
+    let office = this._officeService.getOffice()
     this.office.City = this.city.value
     this.office.Canton = this.canton.value
     this.office.District = this.district.value
@@ -39,7 +39,7 @@ export class EditOfficeComponent implements OnInit {
     this.office.OpeningDate = this.opDate.value
     this.office.ManagerID = this.manID.value
     this.office.ManagerInDate = this.manInDate.value
-
+    this.office.ID = office[9]
     this.api.editOfficeAPI(this.office).subscribe(data => {
       console.log(data);
     })

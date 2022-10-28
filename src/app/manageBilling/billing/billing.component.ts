@@ -47,7 +47,6 @@ export class BillingComponent implements OnInit {
       LicenseP: '',
       Office: '',
       Price: '',
-      IdServicio: '',
       Extras: [],
       PaymentM: ''
     }

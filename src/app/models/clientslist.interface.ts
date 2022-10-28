@@ -1,12 +1,11 @@
 export interface ClientsListI {
     FirstN:string;
-    LastN:string;
-    PhoneNum:string;
+    FirstLN:string;
+    SecondLN:string;
+    PhoneNum:string[];
     ID:string;
     Email:string;
-    Address:string;
-    City:string;
-    Country:string;
+    Address:string[];
     Username:string;
     Password:string;
     Points:string;

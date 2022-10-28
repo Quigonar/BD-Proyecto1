@@ -30,7 +30,7 @@ export class CitaService {
   setTable(citas:AppointmentsListI[]){
     this.tableData.dataRows = []
     for (var cita of citas) {
-      this.tableData.dataRows.push([cita.AppointmentN,cita.ClientN,cita.ClientLN,cita.ClientID,cita.LicenseP,cita.Service,cita.Office,cita.DateTime]) 
+      this.tableData.dataRows.push([cita.AppointmentN,cita.ClientN,cita.ClientLN,cita.ClientID,cita.LicenseP,cita.Service,cita.Office,cita.DateTime,cita.EmpN,cita.EmpLN,cita.EmpID]) 
     }
   }
   getCitas(){

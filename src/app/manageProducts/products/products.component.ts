@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   public elimProduct(index: number) {
     this._productService.setProduct(this._productService.getProducts()[index]);
     this.productD = this._productService.getProduct();
-    this.product.Name = this.productD[0];
+    this.product.ID = this.productD[4];
 
     this.api.deleteProduct(this.product).subscribe(data => {
       console.log(data);
@@ -38,6 +38,7 @@ export class ProductsComponent implements OnInit {
     });
     this.tableData1 = this._productService.getTable();
     this.product = {
+      ID: '',
       Name: '',
       Brand: '',
       Price: '',

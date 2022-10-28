@@ -14,7 +14,7 @@ export class UserService{
   
   constructor() { 
     this.userData= ['Marcos','Gonzalez','118320994','60583801','algo@gmail.com','Calle patito del valle','Cartago','Costa Rica','miusuario','123456789'],
-    this.usertype= false //true cliente | false taller
+    this.usertype= true //true cliente | false taller
     console.log("It should be initialized2")
   }
 
@@ -29,11 +29,9 @@ export class UserService{
     this.usertype=type
   };
 
-  setUser(users:ClientsListI[]){
+  setUser(user:ClientsListI){
     this.userData = []
-    for (var user of users) {
-      this.userData.push(user.FirstN,user.LastN,user.ID,user.PhoneNum,user.Email,user.Address,user.City,user.Country,user.Username,user.Password) 
-    }
+    this.userData.push(user.FirstN,user.FirstLN,user.SecondLN,user.ID,user.PhoneNum.toString(),user.Email,user.Address.toString(),user.Username,user.Password,user.Points)
   };
 
 

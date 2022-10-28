@@ -25,7 +25,7 @@ export class ClientsComponent implements OnInit {
   public elimClient(index: number) {
     this._clientsService.setClient(this._clientsService.getClients()[index]);
     this.clientD = this._clientsService.getClient();
-    this.client.ID = this.clientD[3];
+    this.client.ID = this.clientD[4];
 
     this.api.deleteClient(this.client).subscribe(data => {
       console.log(data);
@@ -41,13 +41,12 @@ export class ClientsComponent implements OnInit {
     this.tableData1 = this._clientsService.getTable();
     this.client = {
       Username: '',
-      PhoneNum: '',
+      PhoneNum: [],
       ID: '',
       FirstN: '',
-      LastN: '',
-      Address: '',
-      City: '',
-      Country: '',
+      FirstLN: '',
+      SecondLN: '',
+      Address: [],
       Email: '',
       Password: '',
       Points: ''
