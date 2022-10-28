@@ -31,6 +31,7 @@ export class ApiService {
     return this.http.get<ClientsListI[]>(dir)
   }
   getClient(id:string):Observable<ClientsListI>{
+    console.log(id)
     let dir = this.url + "cliente/lista/" + id
     return this.http.get<ClientsListI>(dir)
   }

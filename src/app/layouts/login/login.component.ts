@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   id:string;
 
-  constructor(private api:ApiService, private user:UserService) { }
+  constructor(private api:ApiService, private user:UserService, private router:Router) { }
   
   ngOnInit(): void {
   }
@@ -29,10 +29,17 @@ export class LoginComponent implements OnInit {
       console.log(data)
       if (data.status == "ok" && data.type == "Trabajador") {
         this.user.setType(false)
+        this.router.navigate(['/','workers'])
       }
       else if (data.status == "ok" && data.type == "Cliente") {
-        this.user.setType(true);
+        this.user.setType(true)
         this.id = data.id
+        this.user.setID(this.id)
+        //console.log(this.user.getID())
+        this.router.navigate(['/','user'])
+      }
+      else{
+        alert("Password or username does not match")
       }
     })
     
@@ -42,6 +49,6 @@ export class LoginComponent implements OnInit {
         console.log("data: " + data2.FirstN)
         this.user.setUser(data2)
       }, 1000);
-    }) */
+    })*/
   }
 }
