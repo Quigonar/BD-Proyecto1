@@ -15,7 +15,7 @@ export class UserService{
   constructor() { 
     this.userData= ['Marcos','Gonzalez','118320994','60583801','algo@gmail.com','Calle patito del valle','Cartago','Costa Rica','miusuario','123456789'],
     this.usertype= true //true cliente | false taller
-    console.log("It should be initialized2")
+    this.id=0
   }
 
   getType(){
