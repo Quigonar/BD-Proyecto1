@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from '../../home/home.component';
 import { UserComponent } from '../../user/user.component';
+import { PointsComponent } from 'app/managePoints/points.component';
+
 
 import { ClientsComponent } from '../../manageClients/clients/clients.component';
 import { AddClientComponent } from '../../manageClients/addClient/addClient.component';
@@ -38,6 +40,7 @@ import { ModifyAppointmentsComponent } from 'app/manageAppointments/modifyAppoin
 export const AdminLayoutRoutes: Routes = [
     /**{ path: 'home',           component: HomeComponent },**/
     { path: 'user',           component: UserComponent },
+    { path:'points',          component: PointsComponent},
     
     { path: 'clients',         component: ClientsComponent },
     { path: 'add-client',      component: AddClientComponent },

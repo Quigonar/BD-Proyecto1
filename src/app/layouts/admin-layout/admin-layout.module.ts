@@ -11,6 +11,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { HomeComponent } from '../../home/home.component';
 import { UserComponent } from '../../user/user.component';
+import { PointsComponent } from 'app/managePoints/points.component';
 
 import { ClientsService } from 'app/services/clients.service';
 import { WorkersService } from 'app/services/workers.service';
@@ -68,6 +69,8 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
   declarations: [
     HomeComponent,
     UserComponent,
+    PointsComponent,
+
     
     ClientsComponent,
     AddClientComponent,
