@@ -48,7 +48,7 @@ export class EditServiceComponent implements OnInit {
     this.service.Duration = this.duration.value
     this.service.Products = (this.products.value.replace(" ", "")).split(",")
     this.service.PersonalReq = this.personalReq.value
-    this.service.Punctuation = this.punctuation.value
+    //this.service.Punctuation = this.punctuation.value
     this.service.ID = service[7]
 
     this.api.editServiceAPI(this.service).subscribe(data => {

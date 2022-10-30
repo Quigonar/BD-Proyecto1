@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WorkersListI } from 'app/models/workerslist.interface';
 import { WorkersService } from 'app/services/workers.service';
 import { ApiService } from 'app/services/api.service'
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-workers',
@@ -14,7 +15,7 @@ export class WorkersComponent implements OnInit {
   public worker:WorkersListI
   public workerD:string[]
 
-  constructor(public _workersService:WorkersService, private api:ApiService) { }
+  constructor(public _workersService:WorkersService, private api:ApiService, public user:UserService) { }
 
   public passWorker(index: number) {
     this._workersService.setWorker(this._workersService.getWorkers()[index])
@@ -36,6 +37,7 @@ export class WorkersComponent implements OnInit {
       console.log(data)
       this._workersService.setTable(data);
     });
+
     this.tableData1 = this._workersService.getTable();
     this.worker = {
       FirstN: '',

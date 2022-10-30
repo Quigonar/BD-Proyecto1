@@ -17,6 +17,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/clients', title: 'Manage Clients',  icon:'pe-7s-users', class: '' },
     { path: '/appointments', title: 'Appointments',  icon:'pe-7s-drawer', class: '' },
     { path: '/billing', title: 'Billing',  icon:'pe-7s-note2', class: '' },
+    { path: '/reports', title: 'Reports',  icon:'pe-7s-download', class: '' },
 ];
 
 export const ROUTES2: RouteInfo[] = [
@@ -36,6 +37,9 @@ export class SidebarComponent implements OnInit {
   constructor(public _userService:UserService) { }
 
   ngOnInit() {
+    /*console.log("id: "  + this._userService.getID())
+    console.log("type: " + this._userService.getType())*/
+
     if (this._userService.getType()) {
       this.menuItems = ROUTES2.filter(menuItem => menuItem)
     }

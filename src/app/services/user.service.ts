@@ -10,38 +10,38 @@ import { ClientsListI } from '../models/clientslist.interface';
 })
 
 export class UserService{
-   
-   public userData: string[];
+   /*public userData: string[];
    public id: string;
-   public usertype:boolean;
+   public usertype:boolean*/
   
   constructor() { 
-    this.id = ""
-    this.userData= ['Marcos','Gonzalez','118320994','60583801','algo@gmail.com','Calle patito del valle','Cartago','Costa Rica','miusuario','123456789'],
-    this.usertype= true //true cliente | false taller
+    //this.userData= ['Marcos','Gonzalez','118320994','60583801','algo@gmail.com','Calle patito del valle','Cartago','Costa Rica','miusuario','123456789'],
+    //this.usertype= true //true cliente | false taller
   }
 
 
   getType() {
-    return this.usertype
+    return JSON.parse(localStorage.getItem("type"))
   }
-  getData() {
+  /*getData() {
     return this.userData
-  }
-  getID(){
-    return this.id
+  };*/
+  getID() {
+    return localStorage.getItem("id")
   }
   setType(type:boolean){
-    this.usertype=type
+    localStorage.setItem("type", type.toString())
+    //this.usertype=type
   };
 
-  setUser(user:ClientsListI){
+  /*setUser(user:ClientsListI){
     this.userData = []
     this.userData.push(user.FirstN,user.FirstLN,user.SecondLN,user.ID,user.PhoneNum.toString(),user.Email,user.Address.toString(),user.Username,user.Password,user.Points)
-  };
+  };*/
 
   setID(ID:string) {
-    this.id = ID
+    localStorage.setItem("id", ID)
+    //this.id = ID
   }
 
 

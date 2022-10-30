@@ -6,7 +6,7 @@ import { UserService } from 'app/services/user.service';
 @NgModule({
     imports: [ RouterModule, CommonModule ],
     declarations: [ FooterComponent ],
-    providers: [UserService],
+    providers: [],
     exports: [ FooterComponent ]
 })
 

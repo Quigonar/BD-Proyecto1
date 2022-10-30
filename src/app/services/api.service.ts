@@ -33,8 +33,9 @@ export class ApiService {
     return this.http.get<ClientsListI[]>(dir)
   }
   getClient(id:string):Observable<ClientsListI>{
-    console.log(id)
+    //console.log(id)
     let dir = this.url + "cliente/lista/" + id
+    console.log("dir: " + dir)
     return this.http.get<ClientsListI>(dir)
   }
   addClient(client:ClientsListI):Observable<ResponseI>{
@@ -156,6 +157,10 @@ export class ApiService {
     let dir = this.url + "cita/lista"
     return this.http.get<AppointmentsListI[]>(dir)
   }
+  gTableAppointments2(id:string):Observable<AppointmentsListI[]>{
+    let dir = this.url + "cita/lista/" + id
+    return this.http.get<AppointmentsListI[]>(dir)
+  }
   addAppointment(appointment:AppointmentsListI):Observable<ResponseI>{
     //console.log(appointment)
     let dir = this.url + "cita/guardar"
@@ -177,15 +182,22 @@ export class ApiService {
     let dir = this.url + "factura/lista"
     return this.http.get<BillListI[]>(dir)
   }
+  gTableInvoices2(id:string):Observable<BillListI[]>{
+    let dir = this.url + "factura/lista/" + id
+    return this.http.get<BillListI[]>(dir)
+  }
   addInvoice(invoice:BillListI):Observable<ResponseI>{
     //console.log(invoice)
     let dir = this.url + "factura/guardar"
     return this.http.post<ResponseI>(dir,invoice)
   }
-  
-  deleteInvoice(invoice:BillListI):Observable<ResponseI>{
-    let dir = this.url + "factura/delete"
-    return this.http.post<ResponseI>(dir,invoice)
+  deleteInvoice(invoice:string):Observable<ResponseI>{
+    let dir = this.url + "factura/delete/" + invoice
+    return this.http.delete<ResponseI>(dir)
+  }
+  facturar(invoice:string):Observable<ResponseI>{
+    let dir = this.url + "factura/facturar/" + invoice
+    return this.http.get<ResponseI>(dir)
   }
 
   gPoints(id:string):Observable<PointsListI[]>{

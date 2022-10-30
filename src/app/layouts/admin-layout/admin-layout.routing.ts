@@ -35,6 +35,7 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
 import { AppointmentsComponent } from '../../manageAppointments/appointments/appointments.component';
 import { NewAppointmentsComponent } from 'app/manageAppointments/newAppointment/newappointment.component';
 import { ModifyAppointmentsComponent } from 'app/manageAppointments/modifyAppointments/modifyappointment.component';
+import { ReportsComponent } from 'app/manageReports/reports.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -72,4 +73,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'appointments',      component: AppointmentsComponent },
     { path: 'add-appointment',    component:NewAppointmentsComponent},
     { path: 'edit-appointment', component:ModifyAppointmentsComponent},
+    
+    { path: 'reports', component:ReportsComponent}
 ];

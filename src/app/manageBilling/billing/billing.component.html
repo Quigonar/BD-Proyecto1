@@ -24,7 +24,7 @@
                                         <button (click)="PDFGen(indexOfFact)" type="button" rel="tooltip" title="Download" class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-download"></i>
                                         </button>
-                                        <button (click)="elimInvoice(indexOfFact)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" id="btndel" [disabled]="_userService.getType()" *ngIf="!_userService.getType()" >
+                                        <button (click)="elimInvoice(indexOfFact)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" id="btndel" [disabled]="user.getType()" *ngIf="!user.getType()" >
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>

@@ -108,15 +108,6 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
     
   ],
   providers: [
-    ClientsService,
-    WorkersService,
-    OfficeService,
-    ProviderService,
-    ProductService,
-    ServiceService,
-    BillingService,
-    CitaService,
-    UserService,
   ]
 })
 

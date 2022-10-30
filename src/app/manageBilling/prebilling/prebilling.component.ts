@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { AppointmentsListI } from 'app/models/appointmentslist.interface';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ProductListI } from 'app/models/productlist.interface';
+import { Router } from '@angular/router';
 
 declare interface TableData {
   headerRow: string[];
@@ -42,7 +43,7 @@ export class PrebillingComponent implements OnInit {
   dropdownSettings:IDropdownSettings={};
 
 
-  constructor(private api:ApiService, private _citaService:CitaService) {
+  constructor(private api:ApiService, private _citaService:CitaService, private router:Router) {
     this.productos = {
       headerRow: [],
       dataRows: []
@@ -66,6 +67,13 @@ export class PrebillingComponent implements OnInit {
       //console.log(this.invoice)
       this.api.addInvoice(this.invoice).subscribe(data => {
         console.log(data);
+        if (data.status == "error") { 
+          alert("El cliente no presenta puntos necesarios para pagar la factura")
+        }
+        else {
+          this.router.navigate(['/','billing'])
+        }
+
       })
     }
 
