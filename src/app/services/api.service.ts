@@ -10,7 +10,9 @@ import { OfficeListI } from 'app/models/officelist.interface';
 import { ProviderListI } from 'app/models/providerlist.interface';
 import { ProductListI } from 'app/models/productlist.interface';
 import { ServiceListI } from 'app/models/servicelist.interface';
+import { PointsListI } from 'app/models/pointslist.interface';
 import { LoginInterface } from 'app/models/login.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -167,8 +169,15 @@ export class ApiService {
     let dir = this.url + "factura/guardar"
     return this.http.post<ResponseI>(dir,invoice)
   }
+  
   deleteInvoice(invoice:BillListI):Observable<ResponseI>{
     let dir = this.url + "factura/delete"
     return this.http.post<ResponseI>(dir,invoice)
+  }
+
+  gPoints(id:string):Observable<PointsListI[]>{
+    let dir=this.url+"puntos/lista/"+id
+    console.log(dir)
+    return this.http.get<PointsListI[]>(dir)
   }
 }
