@@ -32,7 +32,6 @@ export class BillingComponent implements OnInit {
       this._citaBilling.setTable(data)
     });
     this.tableData1 = this._citaBilling.getTable();
-    
     this.factura = {
       Billnum: '',
       ClientN: '',
