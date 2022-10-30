@@ -20,9 +20,10 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 export const ROUTES2: RouteInfo[] = [
-    { path: '/clients', title: 'Manage Clients',  icon:'pe-7s-users', class: '' },
+    { path: '/user', title: 'User Info',  icon:'pe-7s-user', class: '' },
     { path: '/appointments', title: 'Appointments',  icon:'pe-7s-drawer', class: '' },
     { path: '/billing', title: 'Billing',  icon:'pe-7s-note2', class: '' },
+    { path: '/points', title: 'Points', icon:'pe-7s-shopbag',class:''},
 ]
 
 @Component({
