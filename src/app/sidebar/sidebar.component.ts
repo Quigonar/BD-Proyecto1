@@ -20,11 +20,7 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 export const ROUTES2: RouteInfo[] = [
-<<<<<<< HEAD
-    { path: '/user', title: 'User Info',  icon:'pe-7s-user', class: '' },
-=======
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
->>>>>>> 47f06006fa939894438a39225ea0d9bdbdd6238f
     { path: '/appointments', title: 'Appointments',  icon:'pe-7s-drawer', class: '' },
     { path: '/billing', title: 'Billing',  icon:'pe-7s-note2', class: '' },
     { path: '/points', title: 'Points', icon:'pe-7s-shopbag',class:''},
