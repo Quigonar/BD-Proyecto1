@@ -23,24 +23,23 @@ export class EditOfficeComponent implements OnInit {
   name = new FormControl();
   phoneNum = new FormControl();
   opDate = new FormControl();
-  manName = new FormControl();
-  manLName = new FormControl();
+  manID = new FormControl();
   manInDate = new FormControl();
+  id = new FormControl();
 
   constructor(private _officeService:OfficeService, private api:ApiService) { }
 
   public editOffice() {
-    
+    let office = this._officeService.getOffice()
     this.office.City = this.city.value
     this.office.Canton = this.canton.value
     this.office.District = this.district.value
     this.office.Name = this.name.value
     this.office.PhoneNum = this.phoneNum.value
     this.office.OpeningDate = this.opDate.value
-    this.office.ManagerN = this.manName.value
-    this.office.ManagerLN = this.manLName.value
+    this.office.ManagerID = this.manID.value
     this.office.ManagerInDate = this.manInDate.value
-
+    this.office.ID = office[9]
     this.api.editOfficeAPI(this.office).subscribe(data => {
       console.log(data);
     })
@@ -51,8 +50,8 @@ export class EditOfficeComponent implements OnInit {
       console.log(data)
       this.workers = data;
     });
-
     this.office = {
+      ID: '',
       Name: '',
       City: '',
       Canton: '',
@@ -61,18 +60,21 @@ export class EditOfficeComponent implements OnInit {
       OpeningDate: '',
       ManagerN: '',
       ManagerLN: '',
+      ManagerID: '',
       ManagerInDate: ''
     }
+
     let office = this._officeService.getOffice()
     this.city.setValue(office[1]);
     this.canton.setValue(office[2]);
     this.district.setValue(office[3]);
     this.phoneNum.setValue(office[4]);
     this.opDate.setValue(office[5]);
-    this.manName.setValue(office[6]);
-    this.manLName.setValue(office[7]);
+    this.manID.setValue(office[10]);
     this.manInDate.setValue(office[8]);
     this.name.setValue(office[0]);
+    this.id.setValue(office[9]);
+
   }
 
 }

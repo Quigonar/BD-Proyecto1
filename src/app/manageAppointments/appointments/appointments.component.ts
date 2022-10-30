@@ -28,7 +28,7 @@ export class AppointmentsComponent implements OnInit {
     this._citaService.setCita(this._citaService.getCitas()[index]);
   }
 
-  public elimcita(index:number){
+  public elimCita(index:number){
     this._citaService.setCita(this._citaService.getCitas()[index]);
     this.citaD = this._citaService.getCita();
     this.cita.AppointmentN = this.citaD[0];

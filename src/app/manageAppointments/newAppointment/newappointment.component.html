@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Appointment Reservation</h4>
+                        <h4 class="title">Edit Appointment Reservation</h4>
                     </div>
                     <div class="content">
                         <form>
@@ -20,7 +20,7 @@
                                         <input [formControl]="ID" list="ClientList" type="text" class="form-control" placeholder="ID">
                                         <datalist id="ClientList">
                                             <option *ngFor="let client of clients" [value]="client.ID">
-                                                {{client.FirstN}} {{client.LastN}}
+                                                {{client.FirstN}} {{client.FirstLN}}
                                             </option>
                                         </datalist>
                                     </div>
@@ -43,8 +43,8 @@
                                         <label>Office</label>
                                         <input [formControl]="office" list="OfficeList" type="text" class="form-control" placeholder="Office">
                                         <datalist id="OfficeList">
-                                            <option *ngFor="let office of offices" [value]="office.Name">
-                                                {{office.City}}, {{office.Canton}}
+                                            <option *ngFor="let office of offices" [value]="office.ID">
+                                                {{office.Name}}, {{office.City}}, {{office.Canton}}
                                             </option>
                                         </datalist>
                                     </div>
@@ -54,8 +54,8 @@
                                         <label>Service Required</label>
                                         <input [formControl]="service" list="ServiceList" type="text" class="form-control" placeholder="Service">
                                         <datalist id="ServiceList">
-                                            <option *ngFor="let service of services" [value]="service.Name">
-                                                {{service.Name}}
+                                            <option *ngFor="let service of services" [value]="service.ID">
+                                                {{service.Name}}, {{service.Price}}
                                             </option>
                                         </datalist>
                                     </div>

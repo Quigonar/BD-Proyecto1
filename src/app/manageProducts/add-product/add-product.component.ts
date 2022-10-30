@@ -35,6 +35,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.product = {
+      ID: '',
       Name: '',
       Brand: '',
       Price: '',

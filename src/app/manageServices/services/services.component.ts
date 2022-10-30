@@ -23,7 +23,7 @@ export class ServicesComponent implements OnInit {
   public elimService(index: number) {
     this._serviceService.setService(this._serviceService.getServices()[index]);
     this.serviceD = this._serviceService.getService();
-    this.service.Name = this.serviceD[0];
+    this.service.ID = this.serviceD[7];
 
     this.api.deleteService(this.service).subscribe(data => {
       console.log(data);
@@ -39,6 +39,7 @@ export class ServicesComponent implements OnInit {
     this.tableData1 = this._serviceService.getTable();
     this.service = {
       Name:'',
+      ID: '',
       Cost:'',
       Price:'',
       Duration:'',

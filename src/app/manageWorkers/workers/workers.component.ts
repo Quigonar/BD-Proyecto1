@@ -23,7 +23,7 @@ export class WorkersComponent implements OnInit {
   public elimWorker(index: number) {
     this._workersService.setWorker(this._workersService.getWorkers()[index]);
     this.workerD = this._workersService.getWorker();
-    this.worker.ID = this.workerD[2];
+    this.worker.ID = this.workerD[3];
 
     this.api.deleteWorker(this.worker).subscribe(data => {
       console.log(data);
@@ -39,10 +39,12 @@ export class WorkersComponent implements OnInit {
     this.tableData1 = this._workersService.getTable();
     this.worker = {
       FirstN: '',
-      LastN: '',
+      FirstLN: '',
+      SecondLN: '',
       ID: '',
       DateAdmission: '',
       DateBirth: '',
+      Username: '',
       Age: '',
       Password: '',
       Role: '',

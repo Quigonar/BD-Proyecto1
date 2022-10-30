@@ -35,22 +35,34 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>First Name</label>
                                         <input [formControl]="firstName" type="text" class="form-control" placeholder="First Name">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input [formControl]="lastName" type="text" class="form-control" placeholder="Last Name">
+                                        <label>First Last Name</label>
+                                        <input [formControl]="firstLN" type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Second Last Name</label>
+                                        <input [formControl]="secondLN" type="text" class="form-control" placeholder="Last Name">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input [formControl]="username" type="text" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Password</label>
                                         <input [formControl]="password" type="text" class="form-control" placeholder="Password">
@@ -70,8 +82,8 @@
                                         <label>Salary Type</label>
                                         <input [formControl]="salary" list="SalaryList" type="text" class="form-control" placeholder="Salary Type">
                                         <datalist id="SalaryList">
-                                            <option value="Weekly">Weekly</option>
-                                            <option value="Bi-Weekly">Bi-Weekly</option>
+                                            <option value="Semanal">Semanal</option>
+                                            <option value="Bisemanal">Bisemanal</option>
                                         </datalist>
                                     </div>
                                 </div>

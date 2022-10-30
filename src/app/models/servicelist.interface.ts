@@ -1,5 +1,6 @@
 export interface ServiceListI {
     Name:string;
+    ID: string;
     Cost:string;
     Price:string;
     Duration:string;

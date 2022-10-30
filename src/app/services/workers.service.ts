@@ -16,8 +16,8 @@ export class WorkersService {
 
   constructor() { 
     this.tableData = {
-      headerRow: [ 'First Name', 'Last Name', 'ID', 'Date of Admission', 'Date of Birth', 'Age', 'Password', 'Role', 'Type of Salary' ],
-      dataRows: [['Marcos','Gonzalez','118320994','2021-09-11','2001-12-22','20','password','Lavador','Semanal']]
+      headerRow: [ 'First Name', 'First Last Name','Second Last Name', 'ID', 'Date of Admission', 'Date of Birth', 'Age', 'Username','Password', 'Role', 'Type of Salary' ],
+      dataRows: [['Marcos','Gonzalez', 'Araya','118320994','2021-09-11','2001-12-22','20','quigonar','password','Lavador','Semanal']]
     }
   }
   
@@ -27,7 +27,7 @@ export class WorkersService {
   setTable(workers:WorkersListI[]){
     this.tableData.dataRows = []
     for (var worker of workers) {
-      this.tableData.dataRows.push([worker.FirstN,worker.LastN,worker.ID,worker.DateAdmission,worker.DateBirth,worker.Age,worker.Password,worker.Role,worker.Salary]) 
+      this.tableData.dataRows.push([worker.FirstN,worker.FirstLN,worker.SecondLN,worker.ID,worker.DateAdmission,worker.DateBirth,worker.Age,worker.Username,worker.Password,worker.Role,worker.Salary]) 
     }
   };
   getWorkers(){

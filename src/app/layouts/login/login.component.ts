@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'app/services/api.service';
 import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
 import { ResponseI } from 'app/models/response.interface';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
     password : new FormControl('',Validators.required)
   })
 
-  constructor(private api:ApiService, private router:Router, private route: ActivatedRoute,) { }
+  id:string;
+
+  constructor(private api:ApiService, private user:UserService, private router:Router) { }
   
   ngOnInit(): void {
   }
@@ -24,14 +27,28 @@ export class LoginComponent implements OnInit {
   onLogin(form) {
     this.api.login(form).subscribe(data => {
       console.log(data)
-      if (data.status == "ok" && data.type == "admin") {
-        //hacer que corra el layout del admin
+      if (data.status == "ok" && data.type == "Trabajador") {
+        this.user.setType(false)
+        this.router.navigate(['/','workers'])
       }
-      else if (data.status == "ok" && data.type == "client") {
-        //localStorage.setItem("client",data.id)
-        //hacer que corra el layout del cliente sabiendo el indice o id del cliente
+      else if (data.status == "ok" && data.type == "Cliente") {
+        this.user.setType(true)
+        this.id = data.id
+        this.user.setID(this.id)
+        //console.log(this.user.getID())
+        this.router.navigate(['/','user'])
+      }
+      else{
+        alert("Password or username does not match")
       }
     })
     
+    /*this.api.getClient(this.id).subscribe(data2 => {
+      setTimeout(()=>{                           
+        console.log(this.id)
+        console.log("data: " + data2.FirstN)
+        this.user.setUser(data2)
+      }, 1000);
+    })*/
   }
 }

@@ -18,31 +18,37 @@ import { LoginInterface } from 'app/models/login.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  url:string = "https://localhost:7102/"
+  url:string = "https://localhost:44302/"
 
   constructor(private http:HttpClient) { }
 
   login(form:LoginInterface):Observable<ResponseI>{
     console.log(form)
-    let dir = this.url + "login"
-    return this.http.post<ResponseI>(dir,form)
+    let dir = this.url + "login/" + form.user + "/" + form.password
+    return this.http.get<ResponseI>(dir)
   }
 
   gTableClients():Observable<ClientsListI[]>{
     let dir = this.url + "cliente/lista"
     return this.http.get<ClientsListI[]>(dir)
   }
+  getClient(id:string):Observable<ClientsListI>{
+    console.log(id)
+    let dir = this.url + "cliente/lista/" + id
+    return this.http.get<ClientsListI>(dir)
+  }
   addClient(client:ClientsListI):Observable<ResponseI>{
     let dir = this.url + "cliente/guardar"
+    console.log(client)
     return this.http.post<ResponseI>(dir,client)
   }
   editClientAPI(client:ClientsListI):Observable<ResponseI>{
     let dir = this.url + "cliente/update"
-    return this.http.post<ResponseI>(dir,client)
+    return this.http.put<ResponseI>(dir,client)
   }
   deleteClient(client:ClientsListI):Observable<ResponseI>{
-    let dir = this.url + "cliente/delete"
-    return this.http.post<ResponseI>(dir,client)
+    let dir = this.url + "cliente/delete/" + client.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -56,11 +62,12 @@ export class ApiService {
   }
   editOfficeAPI(office:OfficeListI):Observable<ResponseI>{
     let dir = this.url + "sucursal/update"
-    return this.http.post<ResponseI>(dir,office)
+    console.log(office)
+    return this.http.put<ResponseI>(dir,office)
   }
   deleteOffice(office:OfficeListI):Observable<ResponseI>{
-    let dir = this.url + "sucursal/delete"
-    return this.http.post<ResponseI>(dir,office)
+    let dir = this.url + "sucursal/delete/" + office.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -74,11 +81,11 @@ export class ApiService {
   }
   editProviderAPI(provider:ProviderListI):Observable<ResponseI>{
     let dir = this.url + "proveedor/update"
-    return this.http.post<ResponseI>(dir,provider)
+    return this.http.put<ResponseI>(dir,provider)
   }
   deleteProvider(provider:ProviderListI):Observable<ResponseI>{
-    let dir = this.url + "proveedor/delete"
-    return this.http.post<ResponseI>(dir,provider)
+    let dir = this.url + "proveedor/delete/" + provider.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -92,11 +99,12 @@ export class ApiService {
   }
   editProductAPI(product:ProductListI):Observable<ResponseI>{
     let dir = this.url + "producto/update"
-    return this.http.post<ResponseI>(dir,product)
+    console.log(product)
+    return this.http.put<ResponseI>(dir,product)
   }
   deleteProduct(product:ProductListI):Observable<ResponseI>{
-    let dir = this.url + "producto/delete"
-    return this.http.post<ResponseI>(dir,product)
+    let dir = this.url + "producto/delete/" + product.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -104,17 +112,23 @@ export class ApiService {
     let dir = this.url + "servicio/lista"
     return this.http.get<ServiceListI[]>(dir)
   }
-  addService(office:ServiceListI):Observable<ResponseI>{
+  getService(id:Number):Observable<ServiceListI>{
+    let dir = this.url + "servicio/lista/" + id
+    return this.http.get<ServiceListI>(dir)
+  }
+  addService(service:ServiceListI):Observable<ResponseI>{
     let dir = this.url + "servicio/guardar"
-    return this.http.post<ResponseI>(dir,office)
+    //console.log(service)
+    return this.http.post<ResponseI>(dir,service)
   }
-  editServiceAPI(office:ServiceListI):Observable<ResponseI>{
+  editServiceAPI(service:ServiceListI):Observable<ResponseI>{
     let dir = this.url + "servicio/update"
-    return this.http.post<ResponseI>(dir,office)
+    //console.log(service)
+    return this.http.put<ResponseI>(dir,service)
   }
-  deleteService(office:ServiceListI):Observable<ResponseI>{
-    let dir = this.url + "servicio/delete"
-    return this.http.post<ResponseI>(dir,office)
+  deleteService(service:ServiceListI):Observable<ResponseI>{
+    let dir = this.url + "servicio/delete/" + service.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -130,12 +144,11 @@ export class ApiService {
   editWorkerAPI(worker:WorkersListI):Observable<ResponseI>{
     //console.log(worker)
     let dir = this.url + "trabajador/update"
-    return this.http.post<ResponseI>(dir,worker)
+    return this.http.put<ResponseI>(dir,worker)
   }
   deleteWorker(worker:WorkersListI):Observable<ResponseI>{
-    //console.log(worker)
-    let dir = this.url + "trabajador/delete"
-    return this.http.post<ResponseI>(dir,worker)
+    let dir = this.url + "trabajador/delete/" + worker.ID
+    return this.http.delete<ResponseI>(dir)
   }
 
 
@@ -151,12 +164,12 @@ export class ApiService {
   editAppointmentAPI(appointment:AppointmentsListI):Observable<ResponseI>{
     //console.log(appointment)
     let dir = this.url + "cita/update"
-    return this.http.post<ResponseI>(dir,appointment)
+    return this.http.put<ResponseI>(dir,appointment)
   }
   deleteAppointment(appointment:AppointmentsListI):Observable<ResponseI>{
     //console.log(appointment)
-    let dir = this.url + "cita/delete"
-    return this.http.post<ResponseI>(dir,appointment)
+    let dir = this.url + "cita/delete/" + appointment.AppointmentN
+    return this.http.delete<ResponseI>(dir)
   }
 
 

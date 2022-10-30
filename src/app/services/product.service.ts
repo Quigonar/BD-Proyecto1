@@ -16,8 +16,8 @@ export class ProductService {
 
   constructor() { 
     this.tableData = {
-      headerRow: [ 'Name', 'Brand', 'Price', 'Provider' ],
-      dataRows: [[ 'Jabon para carro', 'Germentec', '8900', 'GermentecCR' ]]
+      headerRow: [ 'Name', 'Brand', 'Price', 'Provider', 'ID'],
+      dataRows: [[ 'Jabon para carro', 'Germentec', '8900', 'GermentecCR', '1' ]]
     }
   }
   
@@ -27,7 +27,7 @@ export class ProductService {
   setTable(products:ProductListI[]){
     this.tableData.dataRows = []
     for (var product of products) {
-      this.tableData.dataRows.push([product.Name,product.Brand,product.Price,product.Provider]) 
+      this.tableData.dataRows.push([product.Name,product.Brand,product.Price,product.Provider,product.ID]) 
     }
   };
   getProducts(){

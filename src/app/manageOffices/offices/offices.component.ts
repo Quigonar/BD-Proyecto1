@@ -22,10 +22,10 @@ export class OfficesComponent implements OnInit {
     this._officeService.setOffice(this._officeService.getOffices()[index]);
   }
 
-  public elimClient(index: number) {
+  public elimOffice(index: number) {
     this._officeService.setOffice(this._officeService.getOffices()[index]);
     this.officeD = this._officeService.getOffice();
-    this.office.Name = this.officeD[0];
+    this.office.ID = this.officeD[9];
 
     this.api.deleteOffice(this.office).subscribe(data => {
       console.log(data);
@@ -40,6 +40,7 @@ export class OfficesComponent implements OnInit {
     });
     this.tableData1 = this._officeService.getTable();
     this.office = {
+      ID: '',
       Name: '',
       City: '',
       Canton: '',
@@ -48,6 +49,7 @@ export class OfficesComponent implements OnInit {
       OpeningDate: '',
       ManagerN: '',
       ManagerLN: '',
+      ManagerID: '',
       ManagerInDate: '',
     }
   }

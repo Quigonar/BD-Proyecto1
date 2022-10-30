@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { ClientsListI } from 'app/models/clientslist.interface';
 import { ServiceListI } from 'app/models/servicelist.interface';
 import { OfficeListI } from 'app/models/officelist.interface';
+import { WorkersListI } from 'app/models/workerslist.interface';
 
 @Component({
   selector: 'app-modifyappointment',
@@ -19,6 +20,7 @@ export class ModifyAppointmentsComponent implements OnInit {
   services:ServiceListI[]
   clients:ClientsListI[]
   offices:OfficeListI[]
+  employees:WorkersListI[]
 
   name = new FormControl();
   lastName = new FormControl();
@@ -27,6 +29,7 @@ export class ModifyAppointmentsComponent implements OnInit {
   date = new FormControl();
   office = new FormControl();
   service = new FormControl();
+  worker = new FormControl();
 
 
   constructor(private api:ApiService, private _citaService:CitaService) { }
@@ -39,6 +42,7 @@ export class ModifyAppointmentsComponent implements OnInit {
       this.appointment.Office = this.office.value
       this.appointment.Service = this.service.value
       this.appointment.DateTime = this.date.value
+      this.appointment.EmpID = this.worker.value
 
       this.api.editAppointmentAPI(this.appointment).subscribe(data => {
         console.log(data);
@@ -55,6 +59,7 @@ export class ModifyAppointmentsComponent implements OnInit {
     this.office.setValue(cita[6])
     this.service.setValue(cita[5])
     this.date.setValue(cita[7])
+    this.worker.setValue(cita[10])
 
     this.appointment = {
       AppointmentN: '',
@@ -77,9 +82,11 @@ export class ModifyAppointmentsComponent implements OnInit {
     this.api.gTableClients().subscribe(data=> {
       this.clients = data
     })
-
     this.api.gTableOffices().subscribe(data=> {
       this.offices = data
+    })
+    this.api.gTableWorkers().subscribe(data=> {
+      this.employees = data
     })
   }
 

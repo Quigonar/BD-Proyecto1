@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ApiService } from 'app/services/api.service';
 import { ClientsService } from 'app/services/clients.service';
 import { ClientsListI } from 'app/models/clientslist.interface'
+import { throws } from 'assert';
 
 @Component({
   selector: 'app-editClient',
@@ -19,9 +20,8 @@ export class EditClientComponent implements OnInit {
   ID = new FormControl();
   firstName = new FormControl();
   lastName = new FormControl();
+  secondlastName = new FormControl();
   address = new FormControl();
-  city = new FormControl();
-  country = new FormControl();
   email = new FormControl();
   password = new FormControl();
   
@@ -29,13 +29,12 @@ export class EditClientComponent implements OnInit {
 
   public editClient() {
     this.clientE.Username = this.username.value
-    this.clientE.PhoneNum = this.phoneNumber.value
+    this.clientE.PhoneNum = (this.phoneNumber.value.replace(" ", "")).split(",")
     this.clientE.ID = this.ID.value
     this.clientE.FirstN = this.firstName.value
-    this.clientE.LastN = this.lastName.value
-    this.clientE.Address = this.address.value
-    this.clientE.City = this.city.value
-    this.clientE.Country = this.country.value
+    this.clientE.FirstLN = this.lastName.value
+    this.clientE.SecondLN = this.secondlastName.value
+    this.clientE.Address = (this.address.value.replace(" ", "")).split(",")
     this.clientE.Email = this.email.value
     this.clientE.Password = this.password.value
 
@@ -47,27 +46,38 @@ export class EditClientComponent implements OnInit {
   ngOnInit() {
     this.clientE = {
       Username: '',
-      PhoneNum: '',
+      PhoneNum: [],
       ID: '',
       FirstN: '',
-      LastN: '',
-      Address: '',
-      City: '',
-      Country: '',
+      FirstLN: '',
+      SecondLN: '',
+      Address: [],
       Email: '',
       Password: '',
       Points: ''
     }
+
+    
+
     let client = this._clientsService.getClient()
-    this.username.setValue(client[8]);
-    this.phoneNumber.setValue(client[2]);
-    this.ID.setValue(client[3]);
+    this.username.setValue(client[7]);
+    this.phoneNumber.setValue(client[3]);
+    this.ID.setValue(client[4]);
     this.firstName.setValue(client[0]);
     this.lastName.setValue(client[1]);
-    this.address.setValue(client[5]);
-    this.city.setValue(client[6]);
-    this.country.setValue(client[7]);
-    this.email.setValue(client[4]);
-    this.password.setValue(client[9]);
+    this.secondlastName.setValue(client[2])
+    this.address.setValue(client[6]);
+    this.email.setValue(client[5]);
+    this.password.setValue(client[8]);
+
+    /*this.api.getClient(client[4]).subscribe(data => {
+      this.clientE = data
+      console.log(data)
+      console.log(this.clientE.PhoneNum)
+      this.phoneNumber.setValue(data.PhoneNum)
+      this.address.setValue(data.Address)
+    })*/
+
+    this.ID.disable();
   }
 }

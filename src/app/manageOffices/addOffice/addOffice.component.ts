@@ -20,8 +20,9 @@ export class AddOfficeComponent implements OnInit {
   name = new FormControl();
   phoneNum = new FormControl();
   opDate = new FormControl();
-  manName = new FormControl();
-  manLName = new FormControl();
+  /*manName = new FormControl();
+  manLName = new FormControl();*/
+  manID = new FormControl();
   manInDate = new FormControl();
 
   constructor(private api:ApiService) { }
@@ -34,8 +35,9 @@ export class AddOfficeComponent implements OnInit {
     this.office.Name = this.name.value
     this.office.PhoneNum = this.phoneNum.value
     this.office.OpeningDate = this.opDate.value
-    this.office.ManagerN = this.manName.value
-    this.office.ManagerLN = this.manLName.value
+    /*this.office.ManagerN = this.manName.value
+    this.office.ManagerLN = this.manLName.value*/
+    this.office.ManagerID = this.manID.value
     this.office.ManagerInDate = this.manInDate.value
 
     this.api.addOffice(this.office).subscribe(data => {
@@ -50,6 +52,7 @@ export class AddOfficeComponent implements OnInit {
     });
 
     this.office = {
+      ID:'',
       Name: '',
       City: '',
       Canton: '',
@@ -58,6 +61,7 @@ export class AddOfficeComponent implements OnInit {
       OpeningDate: '',
       ManagerN: '',
       ManagerLN: '',
+      ManagerID: '',
       ManagerInDate: ''
     }
   }

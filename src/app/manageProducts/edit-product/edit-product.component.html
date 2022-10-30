@@ -35,7 +35,7 @@
                                         <label>Provider</label>
                                         <input [formControl]="provider" list="ProvidersList" type="text" class="form-control" placeholder="Provider">
                                         <datalist id="ProvidersList">
-                                            <option *ngFor="let provider of providers" [value]="provider.Name">
+                                            <option *ngFor="let provider of providers" [value]="provider.ID">
                                                 {{provider.Name}}
                                             </option>
                                         </datalist>

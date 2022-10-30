@@ -7,6 +7,10 @@ import { AppointmentsListI } from 'app/models/appointmentslist.interface';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ProductListI } from 'app/models/productlist.interface';
 
+declare interface TableData {
+  headerRow: string[];
+  dataRows: string[][];
+}
 
 @Component({
   selector: 'app-prebilling',
@@ -18,6 +22,7 @@ export class PrebillingComponent implements OnInit {
   appointment:AppointmentsListI;
   invoice:BillListI;
   products: ProductListI[]
+  productos: TableData;
 
   appointNum:string;
   name = new FormControl();
@@ -33,12 +38,16 @@ export class PrebillingComponent implements OnInit {
   consumption = new FormControl();
   payM = new FormControl();
 
-  productos = [];
   selected = [];
   dropdownSettings:IDropdownSettings={};
 
 
-  constructor(private api:ApiService, private _citaService:CitaService) { }
+  constructor(private api:ApiService, private _citaService:CitaService) {
+    this.productos = {
+      headerRow: [],
+      dataRows: []
+    }
+   }
 
   public billAppointment(){
       this.invoice.AppointmentN = this.appointNum
@@ -52,7 +61,7 @@ export class PrebillingComponent implements OnInit {
       this.invoice.EmployeeN = this.empName.value
       this.invoice.EmployeeLN = this.empLName.value
       this.invoice.IdTrabajador = this.empID.value
-      this.invoice.Extras = this.consumption.value
+      this.invoice.Extras = (this.consumption.value.replace(" ", "")).split(",")
       this.invoice.PaymentM = this.payM.value
       //console.log(this.invoice)
       this.api.addInvoice(this.invoice).subscribe(data => {
@@ -86,20 +95,19 @@ export class PrebillingComponent implements OnInit {
     this.empLName.disable();
     this.empID.disable();
 
-    //this.productos = ["Chips", "Coca", "Galletas"]
+    this.productos.headerRow = ["Products", "Price", "Brand"]
     this.api.gTableProducts().subscribe(data => {
-      this.products = data
-      for (let product of this.products){
-        this.productos.push(product.Name)
+      for (var product of data){
+        this.productos.dataRows.push([product.Name,product.Price,product.Brand])
       }
     })
-    this.selected = [];
+    /*this.selected = [];
     this.dropdownSettings = {
       enableCheckAll: false,
       textField: 'product_name',
       noDataAvailablePlaceholderText: "There is no products added in the system",
       allowSearchFilter: true
-    }
+    }*/
 
     this.invoice = {
       Billnum:'',
@@ -115,7 +123,6 @@ export class PrebillingComponent implements OnInit {
       LicenseP:'',
       Office:'',
       Price:'',
-      IdServicio:'',
       Extras:[],
       PaymentM:''
     }

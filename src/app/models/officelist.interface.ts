@@ -1,5 +1,6 @@
 export interface OfficeListI {
     Name:string;
+    ID:string;
     //Location:string;
     City:string;
     Canton:string;
@@ -8,5 +9,6 @@ export interface OfficeListI {
     OpeningDate:string;
     ManagerN:string;
     ManagerLN:string;
+    ManagerID:string;
     ManagerInDate:string;
 }

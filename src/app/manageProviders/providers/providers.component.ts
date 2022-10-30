@@ -23,7 +23,7 @@ export class ProvidersComponent implements OnInit {
   public elimProvider(index: number) {
     this._providerService.setProvider(this._providerService.getProviders()[index]);
     this.providerD = this._providerService.getProvider();
-    this.provider.Name = this.providerD[0];
+    this.provider.ID = this.providerD[1];
 
     this.api.deleteProvider(this.provider).subscribe(data => {
       console.log(data);
