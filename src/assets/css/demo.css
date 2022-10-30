@@ -59,12 +59,11 @@
 }
 
 li.disabled{
-    cursor: not-allowed;
     opacity: .1;
 }
 
 a.disabled{
-    cursor: not-allowed;
     opacity: .1;
+    pointer-events: none;
 }
 

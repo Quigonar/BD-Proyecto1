@@ -7,9 +7,14 @@
                         Home
                     </a>
                 </li>-->
-                <li [class.disabled]="!_userService.getType()">
-                    <a [class.disabled]="!_userService.getType()" href="#/user" >
+                <li [class.disabled]="!this._userService.getType()">
+                    <a [class.disabled]="!this._userService.getType()" href="#/user" >
                         User Profile
+                    </a>
+                </li>
+                <li [class.disabled]="!_userService.getType()">
+                    <a [class.disabled]="!_userService.getType()" href="#/points" >
+                        Points
                     </a>
                 </li>
                 <li>
