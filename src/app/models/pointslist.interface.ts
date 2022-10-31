@@ -1,5 +1,5 @@
 export interface PointsListI {
-    PuntosDisp:number;
-    PuntosGast:number;
-    PuntosTot:number;
+    puntosDisp:string;
+    puntosGast:string;
+    puntosTot:string;
 }

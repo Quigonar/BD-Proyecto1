@@ -89,7 +89,7 @@
                                                 </button>
                                             </a>
                                             <a href="#/pre-billing">
-                                                <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Bill" class="btn btn-info btn-simple btn-xs">
+                                                <button (click)="passCita(indexOfAppoint)" type="button" rel="tooltip" title="Bill" class="btn btn-info btn-simple btn-xs" [disabled]="user.getType()" *ngIf="!user.getType()">
                                                     <i class="fa fa-credit-card-alt"></i>
                                                 </button>
                                             </a>

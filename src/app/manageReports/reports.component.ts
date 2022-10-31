@@ -4,11 +4,8 @@ import { ApiService } from 'app/services/api.service';
 import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
 import { ResponseI } from 'app/models/response.interface';
 import { UserService } from 'app/services/user.service';
-
-declare interface TableData {
-  headerRow: string[];
-  dataRows: string[][];
-}
+import { NumberSymbol } from '@angular/common';
+import { ClientsListI } from 'app/models/clientslist.interface';
 
 @Component({
   selector: 'app-reports',
@@ -16,21 +13,40 @@ declare interface TableData {
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  public tableData1: TableData;
+
+  clients:ClientsListI[]
+
+  id = new FormControl();
   
-  constructor() { 
-    this.tableData1 = {
-      headerRow: [ 'Report Name'],
-      dataRows: [['Reporte de planilla'], ['Reporte de tipos de lavado por cliente'], ['Reporte de rendencion de puntos']]
+  constructor(private api:ApiService) { }
+  
+  downloadReport(index:number) { 
+    if (index == 1){
+      this.api.generateReport1().subscribe(data => {
+        console.log(data)
+      })
+      alert("Reporte de planilla was downloaded succesfully")
     }
-  }
-  
-  downloadReport(index:number) {
-    console.log(index)
+    else if (index == 2 && this.id.value != null) {
+      this.api.generateReport2(this.id.value).subscribe(data => {
+        console.log(data)
+      })
+      alert("Reporte de tipos de lavado por cliente was downloaded succesfully")
+    }
+    else if (index == 3) {
+      this.api.generateReport3().subscribe(data => {
+        console.log(data)
+      })
+      alert("Reporte de redencion de puntos was downloaded succesfully")
+    }
+    else { alert("Please fill out the client id box") }
   }
 
   ngOnInit(){
-    console.log(this.tableData1)
+    this.api.gTableClients().subscribe(data => {
+      console.log(data)
+      this.clients = data
+    })
   }
 
   

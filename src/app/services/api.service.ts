@@ -200,9 +200,22 @@ export class ApiService {
     return this.http.get<ResponseI>(dir)
   }
 
-  gPoints(id:string):Observable<PointsListI[]>{
-    let dir=this.url+"puntos/lista/"+id
+  gPoints(id:string):Observable<PointsListI>{
+    let dir=this.url+"puntos/lista/"+ id
+    return this.http.get<PointsListI>(dir)
+  }
+
+  generateReport1():Observable<ResponseI>{
+    let dir = this.url + "reportes/reporte1"
+    return this.http.get<ResponseI>(dir)
+  }
+  generateReport2(id:string):Observable<string>{
+    let dir = this.url + "reportes/reporte2/" + id
     console.log(dir)
-    return this.http.get<PointsListI[]>(dir)
+    return this.http.get<string>(dir)
+  }
+  generateReport3():Observable<string>{
+    let dir = this.url + "reportes/reporte3"
+    return this.http.get<string>(dir)
   }
 }

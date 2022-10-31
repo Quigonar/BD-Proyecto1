@@ -54,6 +54,7 @@ import { ModifyAppointmentsComponent } from 'app/manageAppointments/modifyAppoin
 
 import { BillingComponent } from '../../manageBilling/billing/billing.component';
 import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.component';
+import { ReportsComponent } from 'app/manageReports/reports.component';
 
 
 @NgModule({
@@ -70,7 +71,7 @@ import { PrebillingComponent } from 'app/manageBilling/prebilling/prebilling.com
     HomeComponent,
     UserComponent,
     PointsComponent,
-
+    ReportsComponent,
     
     ClientsComponent,
     AddClientComponent,
